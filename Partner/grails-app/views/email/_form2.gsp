@@ -29,7 +29,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: emailInstance, field: 'gesendet', 'error')} required">
 	<label for="gesendet">
-		<g:message code="email.gesendet.label" default="Senden" />
+		<g:message code="email.send.label" default="Senden" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:checkBox name="gesendet" value="${true}" />
