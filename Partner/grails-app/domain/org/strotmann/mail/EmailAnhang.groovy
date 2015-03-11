@@ -10,5 +10,5 @@ class EmailAnhang {
 		datei()
 	}
 	
-	String toString() {"${this.datei.name}" }
+	String toString() {"${this.datei?.name}" }
 }
