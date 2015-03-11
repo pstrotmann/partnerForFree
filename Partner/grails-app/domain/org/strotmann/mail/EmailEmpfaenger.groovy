@@ -10,6 +10,7 @@ class EmailEmpfaenger {
 
     static constraints = {
 		emailAdresse (email: true)
+		partner(nullable:true)
     }
 	
 	String toString() {"${this.partner},${this.emailAdresse}" }

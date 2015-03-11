@@ -20,7 +20,11 @@ class EmailEmpfaengerController {
     }
 
     def create() {
-        respond new EmailEmpfaenger(params)
+		if (params.email.id) {
+			def emailInstance = Email.get(params.email.id)
+			flash.email = emailInstance
+		}
+		respond new EmailEmpfaenger(params)
     }
 
     @Transactional

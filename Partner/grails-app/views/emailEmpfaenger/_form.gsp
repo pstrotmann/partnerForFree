@@ -16,16 +16,12 @@
 		<g:message code="emailEmpfaenger.eMail.label" default="E Mail" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="eMail" name="eMail.id" from="${org.strotmann.mail.Email.list()}" optionKey="id" required="" value="${emailEmpfaengerInstance?.eMail?.id}" class="many-to-one"/>
-
+	<g:if test="${flash.email}">
+		<g:select id="eMail" name="eMail.id" from="${flash.email}" optionKey="id" required="" value="${emailEmpfaengerInstance?.eMail?.id}" class="many-to-one"/>
+	</g:if>
+	<g:else>
+		<g:select id="eMail" name="eMail.id" from="${org.strotmann.mail.Email.list()}" optionKey="id" required="" value="${emailEmpfaengerInstance?.eMail?.id}" class="many-to-one"/>
+	</g:else>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: emailEmpfaengerInstance, field: 'partner', 'error')} required">
-	<label for="partner">
-		<g:message code="emailEmpfaenger.partner.label" default="Partner" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="partner" name="partner.id" from="${org.strotmann.partner.Partner.list()}" optionKey="id" required="" value="${emailEmpfaengerInstance?.partner?.id}" class="many-to-one"/>
-
-</div>
 
