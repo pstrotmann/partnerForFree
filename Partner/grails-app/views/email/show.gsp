@@ -14,7 +14,9 @@
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="send" id="${emailInstance.id}"><g:message code="default.send.label" args="['eMail']" /></g:link></li>
+				<g:if test="${!emailInstance.gesendet}">
+					<li><g:link class="create" action="send" id="${emailInstance.id}"><g:message code="default.send.label" args="['eMail']" /></g:link></li>
+				</g:if>
 			</ul>
 		</div>
 		<div id="show-email" class="content scaffold-show" role="main">
@@ -93,7 +95,9 @@
 			</ol>
 			<g:form url="[resource:emailInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${emailInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+					<g:if test="${!emailInstance.gesendet}">
+						<g:link class="edit" action="edit" resource="${emailInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+					</g:if>
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>

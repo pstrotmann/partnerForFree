@@ -32,6 +32,6 @@
 		<g:message code="email.send.label" default="Senden" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:checkBox name="gesendet" value="${true}" />
+	<g:checkBox name="gesendet" value="${false}" />
 
 </div>

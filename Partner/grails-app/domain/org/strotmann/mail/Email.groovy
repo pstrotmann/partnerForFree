@@ -15,7 +15,6 @@ class Email {
 	Boolean gesendet
 	Date sendedatum
 	
-	SortedSet emailEmpfaengers
 	static hasMany = [emailEmpfaengers:EmailEmpfaenger,
 					  anhaenge:EmailAnhang]
 	

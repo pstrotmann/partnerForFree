@@ -2,7 +2,7 @@ package org.strotmann.mail
 
 import org.strotmann.partner.Partner;
 
-class EmailEmpfaenger implements Comparable {
+class EmailEmpfaenger  {
 	
 	String emailAdresse
 	Partner partner
@@ -15,7 +15,4 @@ class EmailEmpfaenger implements Comparable {
 	
 	String toString() {"${partner?partner.toString()+',':''}${emailAdresse}" }
 	
-	int compareTo(obj) {
-		id.compareTo(obj.id)
-	}
 }
