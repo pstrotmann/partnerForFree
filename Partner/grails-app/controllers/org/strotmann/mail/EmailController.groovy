@@ -123,6 +123,19 @@ class EmailController {
             '*'{ render status: NO_CONTENT }
         }
     }
+	
+	def send(Email emailInstance) {
+		if (emailInstance.sendMail() == 0) {
+			emailInstance.sendedatum = new Date()
+			emailInstance.gesendet = true
+			flash.message = message(code: 'default.send.good.label', args:['eMail'])
+			emailInstance.save flush:true
+		}
+		else
+			flash.message = message(code: 'default.send.bad.label', args:['eMail'])
+			
+		redirect(action: "show", id:emailInstance.id)
+	}
 
     protected void notFound() {
         request.withFormat {
