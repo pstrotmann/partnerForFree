@@ -1,7 +1,10 @@
 package org.strotmann.mail
 
+import java.util.SortedSet;
+
 import org.apache.commons.mail.*
 import org.strotmann.partner.Partner
+
 import grails.util.Holders
 
 class Email {
@@ -12,6 +15,7 @@ class Email {
 	Boolean gesendet
 	Date sendedatum
 	
+	SortedSet emailEmpfaengers
 	static hasMany = [emailEmpfaengers:EmailEmpfaenger,
 					  anhaenge:EmailAnhang]
 	
