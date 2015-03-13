@@ -24,7 +24,7 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="datei" title="${message(code: 'emailAnhang.datei.label', default: 'Datei')}" />
+						<g:sortableColumn property="dateiname" title="${message(code: 'emailAnhang.dateiname.label', default: 'Dateiname')}" />
 					
 						<th><g:message code="emailAnhang.eMail.label" default="E Mail" /></th>
 					
@@ -34,7 +34,7 @@
 				<g:each in="${emailAnhangInstanceList}" status="i" var="emailAnhangInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${emailAnhangInstance.id}">${fieldValue(bean: emailAnhangInstance, field: "datei")}</g:link></td>
+						<td><g:link action="show" id="${emailAnhangInstance.id}">${fieldValue(bean: emailAnhangInstance, field: "dateiname")}</g:link></td>
 					
 						<td>${fieldValue(bean: emailAnhangInstance, field: "eMail")}</td>
 					

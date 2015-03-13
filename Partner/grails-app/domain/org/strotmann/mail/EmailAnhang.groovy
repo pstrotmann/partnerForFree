@@ -2,13 +2,13 @@ package org.strotmann.mail
 
 class EmailAnhang {
 
-	File datei
+	String dateiname
 	
 	static belongsTo = [eMail:Email]
 	
     static constraints = {
-		datei()
+		dateiname()
 	}
 	
-	String toString() {"${this.datei?.name}" }
+	String toString() {"${this.dateiname}" }
 }

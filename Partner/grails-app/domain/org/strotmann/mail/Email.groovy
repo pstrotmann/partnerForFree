@@ -29,7 +29,7 @@ class Email {
 	String toString() {"${this.emailBetreff}" }
 	
 	int sendMail() {
-		org.apache.commons.mail.Email email = new SimpleEmail()
+		org.apache.commons.mail.MultiPartEmail email = new MultiPartEmail()
 		email.setHostName(Holders.config.smtpServer)
 		email.setSmtpPort(new Integer(Holders.config.smtpPort))
 		email.setAuthenticator(new DefaultAuthenticator(Holders.config.mailUser, Holders.config.mailPasswort))
@@ -37,8 +37,18 @@ class Email {
 		email.setFrom(Holders.config.mailFrom)
 		email.setSubject(emailBetreff)
 		email.setMsg(emailText)
+		
 		emailEmpfaengers.each {EmailEmpfaenger it ->
 			email.addTo(it.emailAdresse)
+		}
+		
+		anhaenge.each {EmailAnhang it ->
+			EmailAttachment attachment = new EmailAttachment();
+			attachment.setPath(it.dateiname);
+			attachment.setDisposition(EmailAttachment.ATTACHMENT);
+			//attachment.setDescription("Länder mit int KfzKz");
+			//attachment.setName("Land");
+			email.attach(attachment)
 		}
 		try {
 			email.send()

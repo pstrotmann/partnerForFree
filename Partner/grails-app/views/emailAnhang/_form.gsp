@@ -2,21 +2,21 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: emailAnhangInstance, field: 'datei', 'error')} required">
-	<label for="datei">
-		<g:message code="emailAnhang.datei.label" default="Datei" />
-		<span class="required-indicator">*</span>
-	</label>
+<div class="fieldcontain ${hasErrors(bean: emailAnhangInstance, field: 'dateiname', 'error')} required">
 	
-
+	<g:uploadForm action="upload" id="flash.email.id">
+		<input type="file" name="file" />
+    	<input type='submit'/>
+	</g:uploadForm>
+	
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: emailAnhangInstance, field: 'eMail', 'error')} required">
-	<label for="eMail">
-		<g:message code="emailAnhang.eMail.label" default="E Mail" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="eMail" name="eMail.id" from="${org.strotmann.mail.Email.list()}" optionKey="id" required="" value="${emailAnhangInstance?.eMail?.id}" class="many-to-one"/>
-
+	<g:if test="${session.email}">
+		<g:select id="eMail" name="eMail.id" from="${session.email}" optionKey="id" required="" value="${emailAnhangInstance?.eMail?.id}" class="many-to-one"/>
+	</g:if>
+	<g:else>
+		<g:select id="eMail" name="eMail.id" from="${org.strotmann.mail.Email.list()}" optionKey="id" required="" value="${emailAnhangInstance?.eMail?.id}" class="many-to-one"/>
+	</g:else>
 </div>
 

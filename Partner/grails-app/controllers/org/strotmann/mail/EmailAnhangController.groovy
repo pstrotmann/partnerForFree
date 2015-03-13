@@ -11,7 +11,7 @@ class EmailAnhangController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+		params.max = Math.min(max ?: 10, 100)
         respond EmailAnhang.list(params), model:[emailAnhangInstanceCount: EmailAnhang.count()]
     }
 
@@ -20,12 +20,42 @@ class EmailAnhangController {
     }
 
     def create() {
-        respond new EmailAnhang(params)
+		if (params.email.id) {
+			def emailInstance = Email.get(params.email.id)
+			session.email = emailInstance
+		}
+		session.emailAnhang = new EmailAnhang(params)
+		respond session.emailAnhang
     }
+	
+	def upload() {
+		def org.springframework.web.multipart.commons.CommonsMultipartFile f = request.getFile('file')
+		String fName = f.getOriginalFilename()
+		String v1Name = "/vol/partnerEmails"
+		File verzPartnerEmails = new File(v1Name)
+		if (!verzPartnerEmails.exists())
+			verzPartnerEmails.mkdir()
+		String v2Name = v1Name+"/anhaengeEmail_"+session.email.id.toString()
+		File verzPartnerEmail = new File(v2Name)
+		if (!verzPartnerEmail.exists())
+			verzPartnerEmail.mkdir()
+		String anhangName = v2Name+'/'+fName
+		f.transferTo(new File(anhangName))
+		def EmailAnhang emailAnhangInstance = session.emailAnhang
+		emailAnhangInstance.dateiname = anhangName 
+		emailAnhangInstance.eMail = session.email
+		emailAnhangInstance.save flush:true
+		redirect(controller: "email", action: "show", id:session.email.id)
+	}
 
     @Transactional
     def save(EmailAnhang emailAnhangInstance) {
-        if (emailAnhangInstance == null) {
+		println 'save'
+		println params
+		def org.springframework.web.multipart.commons.CommonsMultipartFile f = request.getFile('file')
+		String fName = f.getOriginalFilename()
+		println fName
+		if (emailAnhangInstance == null) {
             notFound()
             return
         }
@@ -52,6 +82,7 @@ class EmailAnhangController {
 
     @Transactional
     def update(EmailAnhang emailAnhangInstance) {
+		
         if (emailAnhangInstance == null) {
             notFound()
             return

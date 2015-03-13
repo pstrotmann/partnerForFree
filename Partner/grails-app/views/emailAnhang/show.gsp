@@ -23,11 +23,11 @@
 			</g:if>
 			<ol class="property-list emailAnhang">
 			
-				<g:if test="${emailAnhangInstance?.datei}">
+				<g:if test="${emailAnhangInstance?.dateiname}">
 				<li class="fieldcontain">
-					<span id="datei-label" class="property-label"><g:message code="emailAnhang.datei.label" default="Datei" /></span>
+					<span id="dateiname-label" class="property-label"><g:message code="emailAnhang.dateiname.label" default="Dateiname" /></span>
 					
-						<span class="property-value" aria-labelledby="datei-label"><g:fieldValue bean="${emailAnhangInstance}" field="datei"/></span>
+						<span class="property-value" aria-labelledby="dateiname-label"><g:fieldValue bean="${emailAnhangInstance}" field="dateiname"/></span>
 					
 				</li>
 				</g:if>
