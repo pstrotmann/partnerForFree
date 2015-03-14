@@ -13,25 +13,25 @@
 
 <div class="fieldcontain ${hasErrors(bean: emailInstance, field: 'emailBetreff', 'error')} required">
 	<label for="emailBetreff">
-		<g:message code="email.emailBetreff.label" default="Email Betreff" />
+		<g:message code="email.emailBetreff.label" default="Betreff" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="emailBetreff" required="" value="${emailInstance?.emailBetreff}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: emailInstance, field: 'emailText', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: emailInstance, field: 'Text', 'error')} required">
 	<label for="emailText">
-		<g:message code="email.emailText.label" default="Email Text" />
+		<g:message code="email.emailText.label" default="Text" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="emailText" required="" value="${emailInstance?.emailText}"/>
+	<g:textArea name="emailText" required="" value="${emailInstance?.emailText}"/>
 
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: emailInstance, field: 'anhaenge', 'error')} ">
 	<label for="anhaenge">
-		<g:message code="email.anhaenge.label" default="Anhaenge" />
+		<g:message code="email.anhaenge.label" default="Anhänge" />
 		
 	</label>
 	
@@ -49,7 +49,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: emailInstance, field: 'emailEmpfaengers', 'error')} ">
 	<label for="emailEmpfaengers">
-		<g:message code="email.emailEmpfaengers.label" default="Email Empfaengers" />
+		<g:message code="email.emailEmpfaengers.label" default="Empfänger" />
 		
 	</label>
 	

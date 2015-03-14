@@ -46,7 +46,7 @@
 			
 				<g:if test="${emailInstance?.emailBetreff}">
 				<li class="fieldcontain">
-					<span id="emailBetreff-label" class="property-label"><g:message code="email.emailBetreff.label" default="Email Betreff" /></span>
+					<span id="emailBetreff-label" class="property-label"><g:message code="email.emailBetreff.label" default="Betreff" /></span>
 					
 						<span class="property-value" aria-labelledby="emailBetreff-label"><g:fieldValue bean="${emailInstance}" field="emailBetreff"/></span>
 					
@@ -55,7 +55,7 @@
 			
 				<g:if test="${emailInstance?.emailText}">
 				<li class="fieldcontain">
-					<span id="emailText-label" class="property-label"><g:message code="email.emailText.label" default="Email Text" /></span>
+					<span id="emailText-label" class="property-label"><g:message code="email.emailText.label" default="Text" /></span>
 					
 						<span class="property-value" aria-labelledby="emailText-label"><g:fieldValue bean="${emailInstance}" field="emailText"/></span>
 					
@@ -64,7 +64,7 @@
 			
 				<g:if test="${emailInstance?.anhaenge}">
 				<li class="fieldcontain">
-					<span id="anhaenge-label" class="property-label"><g:message code="email.anhaenge.label" default="Anhaenge" /></span>
+					<span id="anhaenge-label" class="property-label"><g:message code="email.anhaenge.label" default="Anhänge" /></span>
 					
 						<g:each in="${emailInstance.anhaenge}" var="a">
 						<span class="property-value" aria-labelledby="anhaenge-label"><g:link controller="emailAnhang" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></span>
