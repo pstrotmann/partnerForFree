@@ -6,7 +6,7 @@
 	
 	<g:uploadForm action="upload" id="flash.email.id">
 		<input type="file" name="file" />
-    	<input type='submit'/>
+    	<g:submitButton name="create" class="save" value="${message(code: 'default.button.anhang.label', default: 'Anhängen')}" />
 	</g:uploadForm>
 	
 </div>
