@@ -57,11 +57,11 @@ expressionOut.print(flash.message)
 printHtmlPart(12)
 }
 printHtmlPart(13)
-if(true && (emailAnhangInstance?.datei)) {
+if(true && (emailAnhangInstance?.dateiname)) {
 printHtmlPart(14)
-invokeTag('message','g',28,['code':("emailAnhang.datei.label"),'default':("Datei")],-1)
+invokeTag('message','g',28,['code':("emailAnhang.dateiname.label"),'default':("Dateiname")],-1)
 printHtmlPart(15)
-invokeTag('fieldValue','g',30,['bean':(emailAnhangInstance),'field':("datei")],-1)
+invokeTag('fieldValue','g',30,['bean':(emailAnhangInstance),'field':("dateiname")],-1)
 printHtmlPart(16)
 }
 printHtmlPart(17)
@@ -97,7 +97,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1424965262000L
+public static final long LAST_MODIFIED = 1426179163000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

@@ -36,16 +36,16 @@ printHtmlPart(4)
 else {
 printHtmlPart(3)
 invokeTag('select','g',19,['id':("partner"),'name':("partner.id"),'from':(org.strotmann.partner.Partner.list()),'optionKey':("id"),'required':(""),'value':(emailEmpfaengerInstance?.partner?.id),'class':("many-to-one")],-1)
-printHtmlPart(6)
+printHtmlPart(4)
 }
-printHtmlPart(7)
+printHtmlPart(6)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1425045634000L
+public static final long LAST_MODIFIED = 1425913053000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

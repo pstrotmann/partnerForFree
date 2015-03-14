@@ -67,26 +67,19 @@ invokeTag('eachError','g',25,['bean':(emailAnhangInstance),'var':("error")],3)
 printHtmlPart(18)
 })
 invokeTag('hasErrors','g',27,['bean':(emailAnhangInstance)],2)
-printHtmlPart(11)
-createTagBody(2, {->
 printHtmlPart(19)
 invokeTag('render','g',30,['template':("form")],-1)
 printHtmlPart(20)
-invokeTag('submitButton','g',33,['name':("create"),'class':("save"),'value':(message(code: 'default.button.create.label', default: 'Create'))],-1)
+})
+invokeTag('captureBody','sitemesh',34,[:],1)
 printHtmlPart(21)
-})
-invokeTag('form','g',35,['url':([resource:emailAnhangInstance, action:'save'])],2)
-printHtmlPart(22)
-})
-invokeTag('captureBody','sitemesh',37,[:],1)
-printHtmlPart(23)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1424965262000L
+public static final long LAST_MODIFIED = 1426261808000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

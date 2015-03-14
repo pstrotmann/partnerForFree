@@ -75,7 +75,7 @@ invokeTag('render','g',31,['template':("/emailEmpfaenger/form2"),'model':(['emai
 printHtmlPart(20)
 invokeTag('render','g',32,['template':("form2")],-1)
 printHtmlPart(21)
-invokeTag('submitButton','g',35,['name':("create"),'class':("save"),'value':(message(code: 'default.button.send.label', default: 'Senden'))],-1)
+invokeTag('submitButton','g',35,['name':("create"),'class':("save"),'value':(message(code: 'default.button.create.label', default: 'Anlegen'))],-1)
 printHtmlPart(22)
 })
 invokeTag('form','g',37,['url':([resource:emailInstance, action:'save'])],2)
@@ -89,7 +89,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1425058800000L
+public static final long LAST_MODIFIED = 1426091591000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

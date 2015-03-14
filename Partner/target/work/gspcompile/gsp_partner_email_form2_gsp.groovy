@@ -33,9 +33,9 @@ invokeTag('textArea','g',26,['name':("emailText"),'required':(""),'value':(email
 printHtmlPart(3)
 expressionOut.print(hasErrors(bean: emailInstance, field: 'gesendet', 'error'))
 printHtmlPart(7)
-invokeTag('message','g',32,['code':("email.gesendet.label"),'default':("Senden")],-1)
+invokeTag('message','g',32,['code':("email.send.label"),'default':("Senden")],-1)
 printHtmlPart(5)
-invokeTag('checkBox','g',35,['name':("gesendet"),'value':(true)],-1)
+invokeTag('checkBox','g',35,['name':("gesendet"),'value':(false)],-1)
 printHtmlPart(8)
 }
 public static final Map JSP_TAGS = new HashMap()
@@ -43,7 +43,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1425055789000L
+public static final long LAST_MODIFIED = 1426168541000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

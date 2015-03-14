@@ -52,43 +52,43 @@ expressionOut.print(flash.message)
 printHtmlPart(11)
 }
 printHtmlPart(12)
-invokeTag('sortableColumn','g',27,['property':("sender"),'title':(message(code: 'email.sender.label', default: 'Sender'))],-1)
+invokeTag('sortableColumn','g',27,['property':("emailBetreff"),'title':(message(code: 'email.emailBetreff.label', default: 'Email Betreff'))],-1)
 printHtmlPart(13)
-invokeTag('sortableColumn','g',29,['property':("emailBetreff"),'title':(message(code: 'email.emailBetreff.label', default: 'Email Betreff'))],-1)
-printHtmlPart(13)
-invokeTag('sortableColumn','g',31,['property':("emailText"),'title':(message(code: 'email.emailText.label', default: 'Email Text'))],-1)
+invokeTag('sortableColumn','g',29,['property':("emailText"),'title':(message(code: 'email.emailText.label', default: 'Email Text'))],-1)
 printHtmlPart(14)
+invokeTag('sortableColumn','g',31,['property':("sendedatum"),'title':(message(code: 'email.sendedatum.label', default: 'Sendedatum'))],-1)
+printHtmlPart(15)
 loop:{
 int i = 0
 for( emailInstance in (emailInstanceList) ) {
-printHtmlPart(15)
-expressionOut.print((i % 2) == 0 ? 'even' : 'odd')
 printHtmlPart(16)
+expressionOut.print((i % 2) == 0 ? 'even' : 'odd')
+printHtmlPart(17)
 createTagBody(3, {->
-expressionOut.print(fieldValue(bean: emailInstance, field: "sender"))
+expressionOut.print(fieldValue(bean: emailInstance, field: "emailBetreff"))
 })
 invokeTag('link','g',39,['action':("show"),'id':(emailInstance.id)],3)
-printHtmlPart(17)
-expressionOut.print(fieldValue(bean: emailInstance, field: "emailBetreff"))
-printHtmlPart(17)
-expressionOut.print(fieldValue(bean: emailInstance, field: "emailText"))
 printHtmlPart(18)
+expressionOut.print(fieldValue(bean: emailInstance, field: "emailText"))
+printHtmlPart(19)
+invokeTag('formatDate','g',43,['date':(emailInstance?.sendedatum)],-1)
+printHtmlPart(20)
 i++
 }
 }
-printHtmlPart(19)
+printHtmlPart(21)
 invokeTag('paginate','g',50,['total':(emailInstanceCount ?: 0)],-1)
-printHtmlPart(20)
+printHtmlPart(22)
 })
 invokeTag('captureBody','sitemesh',53,[:],1)
-printHtmlPart(21)
+printHtmlPart(23)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1424965232000L
+public static final long LAST_MODIFIED = 1426010557000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

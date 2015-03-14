@@ -13,23 +13,31 @@ Writer out = getOut()
 Writer expressionOut = getExpressionOut()
 registerSitemeshPreprocessMode()
 printHtmlPart(0)
-expressionOut.print(hasErrors(bean: emailAnhangInstance, field: 'datei', 'error'))
+expressionOut.print(hasErrors(bean: emailAnhangInstance, field: 'dateiname', 'error'))
 printHtmlPart(1)
-invokeTag('message','g',7,['code':("emailAnhang.datei.label"),'default':("Datei")],-1)
-printHtmlPart(2)
-expressionOut.print(hasErrors(bean: emailAnhangInstance, field: 'eMail', 'error'))
+createClosureForHtmlPart(2, 1)
+invokeTag('uploadForm','g',10,['action':("upload"),'id':("flash.email.id")],1)
 printHtmlPart(3)
-invokeTag('message','g',16,['code':("emailAnhang.eMail.label"),'default':("E Mail")],-1)
+expressionOut.print(hasErrors(bean: emailAnhangInstance, field: 'eMail', 'error'))
 printHtmlPart(4)
-invokeTag('select','g',19,['id':("eMail"),'name':("eMail.id"),'from':(org.strotmann.mail.Email.list()),'optionKey':("id"),'required':(""),'value':(emailAnhangInstance?.eMail?.id),'class':("many-to-one")],-1)
+if(true && (session.email)) {
 printHtmlPart(5)
+invokeTag('select','g',16,['id':("eMail"),'name':("eMail.id"),'from':(session.email),'optionKey':("id"),'required':(""),'value':(emailAnhangInstance?.eMail?.id),'class':("many-to-one")],-1)
+printHtmlPart(6)
+}
+else {
+printHtmlPart(5)
+invokeTag('select','g',19,['id':("eMail"),'name':("eMail.id"),'from':(org.strotmann.mail.Email.list()),'optionKey':("id"),'required':(""),'value':(emailAnhangInstance?.eMail?.id),'class':("many-to-one")],-1)
+printHtmlPart(6)
+}
+printHtmlPart(7)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1424965262000L
+public static final long LAST_MODIFIED = 1426276193000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

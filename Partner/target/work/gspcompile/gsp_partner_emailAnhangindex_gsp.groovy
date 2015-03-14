@@ -52,7 +52,7 @@ expressionOut.print(flash.message)
 printHtmlPart(11)
 }
 printHtmlPart(12)
-invokeTag('sortableColumn','g',27,['property':("datei"),'title':(message(code: 'emailAnhang.datei.label', default: 'Datei'))],-1)
+invokeTag('sortableColumn','g',27,['property':("dateiname"),'title':(message(code: 'emailAnhang.dateiname.label', default: 'Dateiname'))],-1)
 printHtmlPart(13)
 invokeTag('message','g',29,['code':("emailAnhang.eMail.label"),'default':("E Mail")],-1)
 printHtmlPart(14)
@@ -63,7 +63,7 @@ printHtmlPart(15)
 expressionOut.print((i % 2) == 0 ? 'even' : 'odd')
 printHtmlPart(16)
 createTagBody(3, {->
-expressionOut.print(fieldValue(bean: emailAnhangInstance, field: "datei"))
+expressionOut.print(fieldValue(bean: emailAnhangInstance, field: "dateiname"))
 })
 invokeTag('link','g',37,['action':("show"),'id':(emailAnhangInstance.id)],3)
 printHtmlPart(17)
@@ -84,7 +84,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1424965262000L
+public static final long LAST_MODIFIED = 1426179160000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

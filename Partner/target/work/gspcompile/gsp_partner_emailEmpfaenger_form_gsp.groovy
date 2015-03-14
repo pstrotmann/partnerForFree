@@ -23,21 +23,24 @@ expressionOut.print(hasErrors(bean: emailEmpfaengerInstance, field: 'eMail', 'er
 printHtmlPart(4)
 invokeTag('message','g',16,['code':("emailEmpfaenger.eMail.label"),'default':("E Mail")],-1)
 printHtmlPart(2)
-invokeTag('select','g',19,['id':("eMail"),'name':("eMail.id"),'from':(org.strotmann.mail.Email.list()),'optionKey':("id"),'required':(""),'value':(emailEmpfaengerInstance?.eMail?.id),'class':("many-to-one")],-1)
-printHtmlPart(3)
-expressionOut.print(hasErrors(bean: emailEmpfaengerInstance, field: 'partner', 'error'))
+if(true && (flash.email)) {
 printHtmlPart(5)
-invokeTag('message','g',25,['code':("emailEmpfaenger.partner.label"),'default':("Partner")],-1)
-printHtmlPart(2)
-invokeTag('select','g',28,['id':("partner"),'name':("partner.id"),'from':(org.strotmann.partner.Partner.list()),'optionKey':("id"),'required':(""),'value':(emailEmpfaengerInstance?.partner?.id),'class':("many-to-one")],-1)
+invokeTag('select','g',20,['id':("eMail"),'name':("eMail.id"),'from':(flash.email),'optionKey':("id"),'required':(""),'value':(emailEmpfaengerInstance?.eMail?.id),'class':("many-to-one")],-1)
 printHtmlPart(6)
+}
+else {
+printHtmlPart(5)
+invokeTag('select','g',23,['id':("eMail"),'name':("eMail.id"),'from':(org.strotmann.mail.Email.list()),'optionKey':("id"),'required':(""),'value':(emailEmpfaengerInstance?.eMail?.id),'class':("many-to-one")],-1)
+printHtmlPart(6)
+}
+printHtmlPart(7)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1424965287000L
+public static final long LAST_MODIFIED = 1426102422000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
