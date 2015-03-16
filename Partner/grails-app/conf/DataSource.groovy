@@ -3,7 +3,7 @@ dataSource {
     jmxExport = true
     driverClassName = "org.h2.Driver"
     username = "sa"
-    password = ""
+    password = "wuff0815 "
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -31,7 +31,7 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:partnerDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+            url = "jdbc:h2:partnerDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE;CIPHER=XTEA"
             properties {
                jmxEnabled = true
                initialSize = 5
