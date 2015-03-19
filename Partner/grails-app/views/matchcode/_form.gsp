@@ -4,7 +4,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: matchcodeInstance, field: 'partnerart', 'error')} ">
 	<label for="partnerart">
-		<g:message code="matchcode.partnerart.label" default="Partnerart" />
+		<g:message code="partner.art.label"/>
 		
 	</label>
 	<g:select name="partnerart"  value="${matchcodeInstance?.partnerart}" from="${['p', 'o']}" noSelection="['':' ']"/>
@@ -13,7 +13,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: matchcodeInstance, field: 'name', 'error')} ">
 	<label for="name">
-		<g:message code="matchcode.name.label" default="Name" />
+		<g:message code="partner.name.label"/>
 		
 	</label>
 	<g:textField name="name"  value="${matchcodeInstance?.name}"/>
@@ -22,7 +22,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: matchcodeInstance, field: 'geschlecht', 'error')} ">
 	<label for="geschlecht">
-		<g:message code="matchcode.geschlecht.label" default="Geschlecht" />
+		<g:message code="person.geschlecht.label"/>
 		
 	</label>
 	<g:select name="geschlecht"  value="${matchcodeInstance?.geschlecht}" from="${['m', 'f']}" noSelection="['':' ']" />
@@ -31,7 +31,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: matchcodeInstance, field: 'vorname', 'error')} ">
 	<label for="vorname">
-		<g:message code="matchcode.vorname.label" default="Vorname" />
+		<g:message code="person.vorname.label"/>
 		
 	</label>
 	<g:textField name="vorname"  value="${matchcodeInstance?.vorname}"/>
@@ -40,7 +40,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: matchcodeInstance, field: 'strasse', 'error')} ">
 	<label for="strasse">
-		<g:message code="matchcode.strasse.label" default="Strasse" />
+		<g:message code="hausadresse.strasse.label"/>
 		
 	</label>
 	<g:textField name="strasse"  value="${matchcodeInstance?.strasse}"/>
@@ -49,7 +49,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: matchcodeInstance, field: 'postleitzahl', 'error')} ">
 	<label for="postleitzahl">
-		<g:message code="matchcode.postleitzahl.label" default="Postleitzahl" />
+		<g:message code="hausadresse.postleitzahl.label"/>
 		
 	</label>
 	<g:field name="postleitzahl" type="number" value="${matchcodeInstance.postleitzahl}" required=""/>
@@ -58,7 +58,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: matchcodeInstance, field: 'ort', 'error')} ">
 	<label for="ort">
-		<g:message code="matchcode.ort.label" default="Ort" />
+		<g:message code="hausadresse.ort.label"/>
 		
 	</label>
 	<g:textField name="ort"  value="${matchcodeInstance?.ort}"/>
