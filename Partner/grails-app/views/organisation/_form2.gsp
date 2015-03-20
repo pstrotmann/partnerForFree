@@ -1,7 +1,7 @@
 <%@ page import="org.strotmann.partner.Organisation" %>
 <%@ page import="org.strotmann.partner.Branche" %>
 <table border="1" style="width:100%">
-<caption><b>Organisationsdaten</b> </caption>
+<caption><b><g:message code="organisation.data.label"/></b> </caption>
 <tr>
 	<th><g:message code="partner.name.label"/></th>
 	<th><g:message code="organisation.nameZusatz.label"/></th>
