@@ -12,7 +12,7 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: "/menu", params: [lang: session.user.sprache])}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create"><g:message code="default.new.label" args="['Organization']" /></g:link></li>
 				<li><g:link class="create" action="phList"><g:message code="default.oMerge.label"/></g:link></li>
 				<li><g:link class="create" controller="historie" action="loeList" params="[domName:entityName]"><g:message code="default.loe.label" args="[entityName]"/></g:link></li>
 			</ul>
@@ -25,13 +25,13 @@
 			<table>
 				<thead>
 					<tr>
-						<g:sortableColumn property="name" title="${message(code: 'organisation.name.label', default: 'Name')}" />
+						<g:sortableColumn property="name" title="${message(code: 'partner.name.label')}" />
 					
-						<g:sortableColumn property="nameZusatz" title="${message(code: 'organisation.nameZusatz.label', default: 'Name Zusatz')}" />
+						<g:sortableColumn property="nameZusatz" title="${message(code: 'organisation.nameZusatz.label')}" />
 					
-						<g:sortableColumn property="rechtsform" title="${message(code: 'organisation.rechtsform.label', default: 'Rechtsform')}" />
+						<g:sortableColumn property="rechtsform" title="${message(code: 'organisation.rechtsform.label')}" />
 					
-						<th><g:message code="organisation.hausadresse.label" default="Hausadresse" /></th>
+						<th><g:message code="organisation.hausadresse.label"/></th>
 					
 					</tr>
 				</thead>
