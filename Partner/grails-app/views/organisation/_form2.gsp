@@ -3,8 +3,8 @@
 <table border="1" style="width:100%">
 <caption><b>Organisationsdaten</b> </caption>
 <tr>
-	<th><g:message code="organisation.name.label" default="Name" /></th>
-	<th><g:message code="organisation.nameZusatz.label" default="Name Zusatz" /></th>
+	<th><g:message code="partner.name.label"/></th>
+	<th><g:message code="organisation.nameZusatz.label"/></th>
 	
 </tr>
 <tr>

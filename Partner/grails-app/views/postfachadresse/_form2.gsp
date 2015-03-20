@@ -1,12 +1,12 @@
 <%@ page import="org.strotmann.partner.Postfachadresse" %>
 
 <table border="1" style="width:100%">
-<caption><b>Postfachadresse</b></caption>
+<caption><b><g:message code="partner.postfachadresse.label"/></b></caption>
 
 <tr>
-	<th><g:message code="postfachadresse.postfach.label" default="Postfach" /></th>
-	<th><g:message code="postfachadresse.postleitzahl.label" default="Postleitzahl" /></th>
-	<th><g:message code="postfachadresse.ort.label" default="Ort" /> </th>
+	<th><g:message code="postfachadresse.postfach.label"/></th>
+	<th><g:message code="hausadresse.postleitzahl.label"/></th>
+	<th><g:message code="hausadresse.ort.label"/> </th>
 </tr>
 <tr>
 	<td class="fieldcontain ${hasErrors(bean: postfachadresseInstance, field: 'postfach', 'error')} ">
