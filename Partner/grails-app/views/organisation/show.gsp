@@ -26,7 +26,7 @@
 			
 				<g:if test="${organisationInstance?.name}">
 				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="organisation.name.label" default="Name" /></span>
+					<span id="name-label" class="property-label"><g:message code="partner.name.label"/></span>
 					
 						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${organisationInstance}" field="name"/></span>
 					
@@ -35,7 +35,7 @@
 			
 				<g:if test="${organisationInstance?.nameZusatz}">
 				<li class="fieldcontain">
-					<span id="nameZusatz-label" class="property-label"><g:message code="organisation.nameZusatz.label" default="Name Zusatz" /></span>
+					<span id="nameZusatz-label" class="property-label"><g:message code="organisation.nameZusatz.label"/></span>
 					
 						<span class="property-value" aria-labelledby="nameZusatz-label"><g:fieldValue bean="${organisationInstance}" field="nameZusatz"/></span>
 					
@@ -44,7 +44,7 @@
 			
 				<g:if test="${organisationInstance?.rechtsform}">
 				<li class="fieldcontain">
-					<span id="rechtsform-label" class="property-label"><g:message code="organisation.rechtsform.label" default="Rechtsform" /></span>
+					<span id="rechtsform-label" class="property-label"><g:message code="organisation.rechtsform.label"/></span>
 					
 						<span class="property-value" aria-labelledby="rechtsform-label"><g:fieldValue bean="${organisationInstance}" field="rechtsform"/></span>
 					
@@ -53,7 +53,7 @@
 				
 				<g:if test="${organisationInstance?.branche}">
 				<li class="fieldcontain">
-					<span id="branche-label" class="property-label"><g:message code="organisation.branche.label" default="Branche" /></span>
+					<span id="branche-label" class="property-label"><g:message code="organisation.branche.label"/></span>
 					
 						<span class="property-value" aria-labelledby="branche-label"><g:fieldValue bean="${organisationInstance}" field="branche"/></span>
 					
@@ -62,7 +62,7 @@
 								
 				<g:if test="${organisationInstance?.hausadresse}">
 				<li class="fieldcontain">
-					<span id="hausadresse-label" class="property-label"><g:message code="organisation.hausadresse.label" default="Hausadresse" /></span>
+					<span id="hausadresse-label" class="property-label"><g:message code="organisation.hausadresse.label"/></span>
 					
 						<span class="property-value" aria-labelledby="hausadresse-label"><g:link controller="hausadresse" action="show" id="${organisationInstance?.hausadresse?.id}">${organisationInstance?.hausadresse?.encodeAsHTML()}</g:link></span>
 					
@@ -71,7 +71,7 @@
 			
 				<g:if test="${organisationInstance?.bankverbindungen}">
 				<li class="fieldcontain">
-					<span id="bankverbindungen-label" class="property-label"><g:message code="organisation.bankverbindungen.label" default="Bankverbindungen" /></span>
+					<span id="bankverbindungen-label" class="property-label"><g:message code="person.bankverbindungen.label"/></span>
 					
 						<g:each in="${organisationInstance.bankverbindungen}" var="b">
 						<span class="property-value" aria-labelledby="bankverbindung-label"><g:link controller="bankverbindung" action="show" id="${b.id}">${b?.encodeAsHTML()}</g:link></span>
@@ -82,7 +82,7 @@
 			
 				<g:if test="${organisationInstance?.kommunikationen}">
 				<li class="fieldcontain">
-					<span id="kommunikationen-label" class="property-label"><g:message code="organisation.kommunikationen.label" default="Kommunikationskanäle" /></span>
+					<span id="kommunikationen-label" class="property-label"><g:message code="person.kommunikationen.label"/></span>
 					
 						<g:each in="${organisationInstance.kommunikationen}" var="k">
 						<span class="property-value" aria-labelledby="kommunikation-label"><g:link controller="kommunikation" action="show" id="${k.id}">${k?.encodeAsHTML()}</g:link></span>
@@ -93,7 +93,7 @@
 			
 				<g:if test="${organisationInstance?.postfachadressen}">
 				<li class="fieldcontain">
-					<span id="postfachadresse-label" class="property-label"><g:message code="organisation.postfachadresse.label" default="Postfachadresse" /></span>
+					<span id="postfachadresse-label" class="property-label"><g:message code="partner.postfachadresse.label"/></span>
 					
 						<g:each in="${organisationInstance.postfachadressen}" var="p">
 						<span class="property-value" aria-labelledby="postfachadresse-label"><g:link controller="postfachadresse" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
@@ -104,7 +104,7 @@
 				
 				<g:if test="${organisationInstance?.lieferadressen}">
 				<li class="fieldcontain">
-					<span id="lieferadresse-label" class="property-label"><g:message code="organisation.lieferadresse.label" default="Lieferadresse" /></span>
+					<span id="lieferadresse-label" class="property-label"><g:message code="organisation.lieferadresse.label"/></span>
 					
 						<g:each in="${organisationInstance.lieferadressen}" var="p">
 						<span class="property-value" aria-labelledby="lieferadresse-label"><g:link controller="lieferadresse" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
@@ -115,7 +115,7 @@
 				
 				<g:if test="${organisationInstance?.partnerrollen}">
 				<li class="fieldcontain">
-					<span id="partnerrollen-label" class="property-label"><g:message code="organisation.partnerrollen.label" default="ist" /></span>
+					<span id="partnerrollen-label" class="property-label"><g:message code="person.partnerrollen.label"/></span>
 					
 						<g:each in="${organisationInstance.partnerrollen}" var="p">
 						<span class="property-value" aria-labelledby="partnerrolle-label"><g:link controller="${p.objektname}" action="show" id="${p.objektId}">${p?.encodeAsHTML()}</g:link></span>
@@ -126,7 +126,7 @@
 				
 				<g:if test="${org.strotmann.partner.Partnerrolle.rollenZuObjekt(organisationInstance)}">
 				<li class="fieldcontain">
-					<span id="partnerrollen-label" class="property-label"><g:message code="organisation.partnerrollen.label" default="hat" /></span>
+					<span id="partnerrollen-label" class="property-label"><g:message code="person.partnerrollen.label"/></span>
 					
 						<g:each in="${org.strotmann.partner.Partnerrolle.rollenZuObjekt(organisationInstance)}" var="ro">
 						<g:if test="${ro.partner.instanceOf(org.strotmann.partner.Person)}">
@@ -141,7 +141,7 @@
 				</g:if>
 				
 				<li class="fieldcontain">
-					<span id="notizen-label" class="property-label"><g:message code="organisation.notizen.label" default="Notizen" /></span>
+					<span id="notizen-label" class="property-label"><g:message code="person.notizen.label" default="Notizen" /></span>
 					
 						<g:each in="${org.strotmann.notiz.Notiz.getNotizen('Organisation',organisationInstance.id)}" var="n">
 						<span class="property-value" aria-labelledby="notizen-label"><g:link controller="notiz" action="show" id="${n.id}">${n}</g:link></span>
