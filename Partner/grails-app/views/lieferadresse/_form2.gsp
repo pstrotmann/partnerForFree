@@ -21,8 +21,8 @@
 
 <tr>
 	<th><g:message code="hausadresse.postleitzahl.label"/></th>
-	<th><g:message code="lieferadresse.ort.label" default="Ort" /> </th>
-	<th><g:message code="lieferadresse.land.label" default="Land" /> </th>
+	<th><g:message code="hausadresse.ort.label"/> </th>
+	<th><g:message code="hausadresse.land.label"/> </th>
 </tr>
 <tr>
 	<td class="fieldcontain ${hasErrors(bean: lieferadresseInstance, field: 'postleitzahl', 'error')} ">
