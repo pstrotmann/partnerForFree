@@ -28,15 +28,15 @@
 			<thead>
 					<tr>
 					
-						<th>erfasst durch</th>
+						<th><g:message code="historie.erfasstDurch.label"/></th>
 					
-						<th>gültig ab</th>
+						<th><g:message code="historie.gueAb.label"/></th>
 						
-						<th>gültig bis</th>
+						<th><g:message code="historie.gueBis.label"/></th>
 					
-						<th>Feldname</th>
+						<th><g:message code="historie.feldName.label"/></th>
 					
-						<th>Feldinhalt</th>
+						<th><g:message code="historie.feldInhalt.label"/></th>
 					
 					</tr>
 				</thead>

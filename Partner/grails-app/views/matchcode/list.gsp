@@ -23,15 +23,15 @@
 			<table>
 				<thead>
 					<tr>
-						<g:sortableColumn property="name" title="${message(code: 'matchcode.name.label', default: 'Name')}" />
+						<g:sortableColumn property="name" title="${message(code: 'partner.name.label')}" />
 					
-						<g:sortableColumn property="vorname" title="${message(code: 'matchcode.vorname.label', default: ' ')}" />
+						<g:sortableColumn property="vorname" title="${message(code: 'person.vorname.label')}" />
 						
-						<g:sortableColumn property="strasse" title="${message(code: 'matchcode.strasse.label', default: 'Strasse')}" />
+						<g:sortableColumn property="strasse" title="${message(code: 'hausadresse.strasse.label')}" />
 						
-						<g:sortableColumn property="postleitzahl" title="${message(code: 'matchcode.postleitzahl.label', default: 'Plz')}" />
+						<g:sortableColumn property="postleitzahl" title="${message(code: 'hausadresse.postleitzahl.label')}" />
 						
-						<g:sortableColumn property="ort" title="${message(code: 'matchcode.ort.label', default: 'Ort')}" />
+						<g:sortableColumn property="ort" title="${message(code: 'hausadresse.ort.label')}" />
 						
 					</tr>
 				</thead>

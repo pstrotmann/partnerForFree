@@ -115,7 +115,7 @@
 				
 				<g:if test="${organisationInstance?.partnerrollen}">
 				<li class="fieldcontain">
-					<span id="partnerrollen-label" class="property-label"><g:message code="person.partnerrollen.label"/></span>
+					<span id="partnerrollen-label" class="property-label"><g:message code="person.partnerrollen.label.ist"/></span>
 					
 						<g:each in="${organisationInstance.partnerrollen}" var="p">
 						<span class="property-value" aria-labelledby="partnerrolle-label"><g:link controller="${p.objektname}" action="show" id="${p.objektId}">${p?.encodeAsHTML()}</g:link></span>
@@ -126,7 +126,7 @@
 				
 				<g:if test="${org.strotmann.partner.Partnerrolle.rollenZuObjekt(organisationInstance)}">
 				<li class="fieldcontain">
-					<span id="partnerrollen-label" class="property-label"><g:message code="person.partnerrollen.label"/></span>
+					<span id="partnerrollen-label" class="property-label"><g:message code="person.partnerrollen.label.hat"/></span>
 					
 						<g:each in="${org.strotmann.partner.Partnerrolle.rollenZuObjekt(organisationInstance)}" var="ro">
 						<g:if test="${ro.partner.instanceOf(org.strotmann.partner.Person)}">
