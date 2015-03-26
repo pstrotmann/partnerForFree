@@ -130,7 +130,7 @@ pRolle=[Ansprechpartner:'Organisation',Mitarbeiter:'Organisation',Kunde:'Organis
 oRolle=[Kunde:'Organisation',Lieferant:'Organisation']
 zahlweise = [12:'monatlich',6:'zweimonatlich',4:'vierteljährlich',2:'halbjährlich',1:'jährlich']
 //IP-Adressen von Webservices
-bicService='http://31.7.177.152:8080/Bic-0.1'
+bicService='http://185.82.21.97:8080/Bic-0.1'
 //emailDaten
 smtpServer='smtp.1und1.com'
 smtpPort='465'
