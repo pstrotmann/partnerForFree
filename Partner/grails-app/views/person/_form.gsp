@@ -139,7 +139,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: personInstance, field: 'partnerrolle', 'error')} ">
 	<label for="partnerrollen">
-		<g:message code="person.partnerrollen.label"/>
+		<g:message code="person.partnerrollen.label.ist"/>
 		
 	</label>
 	

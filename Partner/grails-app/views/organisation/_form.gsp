@@ -29,7 +29,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: organisationInstance, field: 'nameZusatz', 'error')} ">
 	<label for="nameZusatz">
-		<g:message code="organisation.nameZusatz.label" default="Name Zusatz" />
+		<g:message code="organisation.nameZusatz.label"/>
 		
 	</label>
 	<g:textField name="nameZusatz" maxlength="50" pattern="${organisationInstance.constraints.nameZusatz.matches}" value="${organisationInstance?.nameZusatz}"/>
@@ -37,7 +37,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: organisationInstance, field: 'rechtsform', 'error')} ">
 	<label for="rechtsform">
-		<g:message code="organisation.rechtsform.label" default="Rechtsform" />
+		<g:message code="organisation.rechtsform.label"/>
 		
 	</label>
 	<g:select name="rechtsform" from="${organisationInstance.constraints.rechtsform.inList}" value="${organisationInstance?.rechtsform}" valueMessagePrefix="organisation.rechtsform" noSelection="['': '']"/>
@@ -45,7 +45,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: organisationInstance, field: 'branche', 'error')} ">
 	<label for="branche">
-		<g:message code="organisation.branche.label" default="Branche" />
+		<g:message code="organisation.branche.label"/>
 		
 	</label>
 	<g:select id="branche" name="branche.id" from="${Branche.branchenKurz(65)}" optionKey="id" value="${organisationInstance?.branche?.id}" class="many-to-one" noSelection="['null': '']"/>
@@ -53,7 +53,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: organisationInstance, field: 'bankverbindung', 'error')} ">
 	<label for="bankverbindungen">
-		<g:message code="organisation.bankverbindungen.label" default="Bankverbindungen" />
+		<g:message code="person.bankverbindungen.label"/>
 		
 	</label>
 	
@@ -70,7 +70,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: organisationInstance, field: 'kommunikation', 'error')} ">
 	<label for="kommunikationen">
-		<g:message code="organisation.kommunikationen.label" default="Kommunikationskanäle" />
+		<g:message code="person.kommunikationen.label"/>
 		
 	</label>
 	
@@ -88,7 +88,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: organisationInstance, field: 'partnerrolle', 'error')} ">
 	<label for="partnerrollen">
-		<g:message code="organisation.partnerrollen.label" default="Partnerrollen" />
+		<g:message code="person.partnerrollen.label.ist"/>
 	</label>
 	
 <ul class="one-to-many">
@@ -107,7 +107,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: organisationInstance, field: 'postfachadresse', 'error')} ">
 	<label for="postfachadresse">
-		<g:message code="organisation.postfachadresse.label" default="Postfachadresse" />
+		<g:message code="partner.postfachadresse.label"/>
 		
 	</label>
 	
@@ -124,7 +124,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: organisationInstance, field: 'lieferadresse', 'error')} ">
 	<label for="lieferadresse">
-		<g:message code="organisation.lieferadresse.label" default="Lieferadresse" />
+		<g:message code="organisation.lieferadresse.label"/>
 		
 	</label>
 	
@@ -141,7 +141,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: organisationInstance, field: 'notizen', 'error')} ">
 	<label for="notizen">
-		<g:message code="organisation.notizen.label" default="Notizen" />
+		<g:message code="person.notizen.label"/>
 		
 	</label>
 	
