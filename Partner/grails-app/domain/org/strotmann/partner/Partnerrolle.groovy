@@ -14,7 +14,7 @@ class Partnerrolle implements Comparable {
 	
     static constraints = {
 		
-		rolle(inList:getRollen())
+		rolle(inList:getRollen(), unique: ['id','objektname', 'objektId'])
 		objektname (inList:getObjektnamen())
     }
 	
