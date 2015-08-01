@@ -57,9 +57,12 @@
 				<g:if test="${partnerrolleInstance?.objektId}">
 				<li class="fieldcontain">
 					<span id="objektId-label" class="property-label"><g:message code="partnerrolle.objektId.label" default=" " /></span>
-					
+					<g:if test="${partnerrolleInstance?.objektname in partnerrolleInstance?.objektnamen}">
 						<span class="property-value" aria-labelledby="objektId-label"><g:link controller="${partnerrolleInstance?.objektname}" action="show" id="${partnerrolleInstance?.objektId}">${partnerrolleInstance?.objekt}</g:link></span>
-					
+					</g:if>
+					<g:else>
+						<span class="property-value" aria-labelledby="objektId-label"><g:fieldValue bean="${partnerrolleInstance}" field="objektId"/></span>
+					</g:else>
 				</li>
 				</g:if>
 			

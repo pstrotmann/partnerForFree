@@ -151,7 +151,12 @@
 					<span id="partnerrollen-label" class="property-label"><g:message code="person.partnerrollen.label.ist"/></span>
 					
 						<g:each in="${personInstance.partnerrollen}" var="p">
-						<span class="property-value" aria-labelledby="partnerrolle-label"><g:link controller="${p.objektname}" action="show" id="${p.objektId}">${p?.encodeAsHTML()}</g:link></span>
+						<g:if test="${p?.objektname in p?.objektnamen}">
+							<span class="property-value" aria-labelledby="partnerrolle-label"><g:link controller="${p.objektname}" action="show" id="${p.objektId}">${p?.encodeAsHTML()}</g:link></span>
+						</g:if>
+						<g:else>
+							<span class="property-value" aria-labelledby="partnerrolle-label"><g:fieldValue bean="${p}" field="beschreibung"/></span>
+						</g:else>
 						</g:each>
 					
 				</li>

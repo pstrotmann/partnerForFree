@@ -38,6 +38,8 @@ class PartnerController extends RestfulController {
 			if (k == 'objektId') paro.objektId = Long.parseLong(v)
 		}
 		
+		//paro = partnerrolle(paro)
+		
 		if (paro.save())
 			render text:'ok'
 		else {

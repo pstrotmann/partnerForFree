@@ -37,13 +37,22 @@ class PartnerrolleController {
             return
         }
 
-        partnerrolleInstance.save flush:true
-
+        //partnerrolleInstance.save flush:true
+		
+		if(!partnerrolleInstance.save(flush: true)) {
+			partnerrolleInstance.errors.each {
+				
+				if(it.toString().contains('unique.error')) {
+					partnerrolleInstance = Partnerrolle.getPartnerrolle(partnerrolleInstance)
+				}
+			}
+		}
+		
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'partnerrolle.label', default: 'Partnerrolle'), partnerrolleInstance.id])
                 redirect partnerrolleInstance
-            }
+			}
             '*' { respond partnerrolleInstance, [status: CREATED] }
         }
     }

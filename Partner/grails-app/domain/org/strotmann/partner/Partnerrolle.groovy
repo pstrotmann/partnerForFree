@@ -13,9 +13,11 @@ class Partnerrolle implements Comparable {
 	static belongsTo = [partner:Partner]
 	
     static constraints = {
+		//rolle(inList:getRollen(), unique: ['id','objektname', 'objektId'])
+		//objektname (inList:getObjektnamen())
+		rolle(unique: ['objektname', 'objektId','partner'])
+		objektname ()
 		
-		rolle(inList:getRollen(), unique: ['id','objektname', 'objektId'])
-		objektname (inList:getObjektnamen())
     }
 	
 	int compareTo(obj) {
@@ -26,6 +28,10 @@ class Partnerrolle implements Comparable {
 	
 	String toString() {
 		return 	"${this.rolle}:${getRollenwert(this.rolle)} ${objekt}"
+	}
+	
+	String getBeschreibung(){
+		rolle+','+objektname+','+objektId
 	}
 	
 	Person getPerson () {
@@ -86,6 +92,16 @@ class Partnerrolle implements Comparable {
 			l << clazz.get(item.objektId)
 		}
 		l
+	}
+	
+	//lesen der Partnerrolle ohne id zu kennen
+	static Partnerrolle getPartnerrolle (Partnerrolle paro) {
+		Partnerrolle p =
+		Partnerrolle.find ("from Partnerrolle as p where p.rolle = '${paro.rolle}' and p.objektname = '${paro.objektname}' and p.objektId = ${paro.objektId} and p.partner.id = ${paro.partner.id}")
+		if (p)
+			return p
+		else
+			return paro
 	}
 	
 }
