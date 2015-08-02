@@ -58,11 +58,17 @@ class PartnerrolleController {
     }
 
     def edit(Partnerrolle partnerrolleInstance) {
+		flash.partner = partnerrolleInstance.partner
+		flash.objektname = partnerrolleInstance.objektname
+		flash.rolle = partnerrolleInstance.rolle
         respond partnerrolleInstance
     }
 
     @Transactional
     def update(Partnerrolle partnerrolleInstance) {
+		String s = partnerrolleInstance.objektname.toLowerCase() + '.id'
+		partnerrolleInstance.objektId = new Long(params[s])
+		
         if (partnerrolleInstance == null) {
             notFound()
             return
