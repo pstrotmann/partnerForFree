@@ -28,19 +28,26 @@ class PartnerController extends RestfulController {
 		  render text:'not found!'
 	}
 	
-	//localhost:8080/Partner/partner/createRolle?id=163&rolle=Kunde&objektname=Organisation&objektId=132
-	def createRolle(){
+	//localhost:8080/Partner/partner/saveRolle?id=894&oldId=2344&rolle=Kunde&objektname=Auftrag&objektId=257
+	def saveRolle(){
 		Partnerrolle paro = new Partnerrolle()
+		Partner partner = null
+		Long oldId = null
 		params.each{k,v ->
-			if (k == 'id') paro.partner = Partner.get(Long.parseLong(v))
+			if (k == 'id') partner = Partner.get(Long.parseLong(v))
+			if (k == 'oldId') oldId = Long.parseLong(v)
 			if (k == 'rolle') paro.rolle = v
 			if (k == 'objektname') paro.objektname = v
 			if (k == 'objektId') paro.objektId = Long.parseLong(v)
 		}
+				
+		if (oldId > 0) {
+			paro.partner = Partner.get(oldId)
+			paro = Partnerrolle.getPartnerrolle(paro)
+			}
+		paro.partner = partner	
 		
-		//paro = partnerrolle(paro)
-		
-		if (paro.save())
+		if (paro.save(flush: true))
 			render text:'ok'
 		else {
 			paro.errors.each {
@@ -49,5 +56,5 @@ class PartnerController extends RestfulController {
 			render text:'Speicherfehler'
 		}
 	}
-		
+	
 }

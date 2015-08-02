@@ -74,8 +74,13 @@ class Partnerrolle implements Comparable {
 	
 	Object getObjekt() {
 		def grailsApplication = new Partnerrolle().domainClass.grailsApplication
-		Class clazz = grailsApplication.domainClasses.find { it.clazz.simpleName == this.objektname }.clazz
-		clazz.get(objektId)		
+		Object o = grailsApplication.domainClasses.find { it.clazz.simpleName == this.objektname }
+		if (o) {
+			Class clazz = o.clazz
+			return clazz.get(objektId)	
+		}
+		else
+			return this.objektname	
 	}
 	
 	static /*<Partnerrolle>*/ List rollenZuObjekt (Object objekt) {

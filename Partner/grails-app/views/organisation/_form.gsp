@@ -93,7 +93,12 @@
 	
 <ul class="one-to-many">
 <g:each in="${organisationInstance?.partnerrollen?}" var="p">
-    <li><g:link controller="partnerrolle" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+	<g:if test="${p?.objektname in p?.objektnamen}">
+    	<li><g:link controller="partnerrolle" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+    </g:if>
+    <g:else>
+    	<li><g:fieldValue bean="${p}" field="beschreibung"/></li>
+    </g:else>
 </g:each>
 
 <li class="add">
