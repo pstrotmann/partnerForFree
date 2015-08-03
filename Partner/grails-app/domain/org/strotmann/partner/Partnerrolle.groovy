@@ -13,12 +13,16 @@ class Partnerrolle implements Comparable {
 	static belongsTo = [partner:Partner]
 	
     static constraints = {
-		//rolle(inList:getRollen(), unique: ['id','objektname', 'objektId'])
-		//objektname (inList:getObjektnamen())
 		rolle(unique: ['objektname', 'objektId','partner'])
 		objektname ()
 		
     }
+	
+	static mapping = {
+		rolle index: 'rolle_idx'
+		objektname index: 'rolle_idx'
+		objektId index: 'rolle_idx'
+	}
 	
 	int compareTo(obj) {
 		String c = rolle+objektname+objektId
