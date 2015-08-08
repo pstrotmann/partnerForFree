@@ -113,4 +113,14 @@ class Partnerrolle implements Comparable {
 			return paro
 	}
 	
+	//lesen der Partnerrolle ohne id und partnerId zu kennen
+	static Partnerrolle getPaRolle (Partnerrolle paro) {
+		Partnerrolle p =
+		Partnerrolle.find ("from Partnerrolle as p where p.rolle = '${paro.rolle}' and p.objektname = '${paro.objektname}' and p.objektId = ${paro.objektId}")
+		if (p)
+			return p
+		else
+			return paro
+	}
+	
 }
