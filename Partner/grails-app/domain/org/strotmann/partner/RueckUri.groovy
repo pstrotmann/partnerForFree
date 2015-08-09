@@ -10,7 +10,7 @@ class RueckUri {
 		uri()
     }
 	
-	String getUri(String anwendung) {
+	static String getUri(String anwendung) {
 		RueckUri rueckUri = RueckUri.find ("from RueckUri as rue where rue.anwendung = '${anwendung}'")
 		rueckUri.uri
     }

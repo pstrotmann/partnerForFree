@@ -108,6 +108,11 @@ class PartnerrolleController {
             '*'{ render status: NO_CONTENT }
         }
     }
+	
+	def toRueckUri (Partnerrolle paro) {
+		def String uri = RueckUri.getUri(paro.objektname)
+		redirect(uri: "${uri}/show/${paro.objektId}")
+	}
 
     protected void notFound() {
         request.withFormat {

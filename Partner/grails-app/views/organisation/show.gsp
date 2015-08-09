@@ -122,7 +122,7 @@
 							<span class="property-value" aria-labelledby="partnerrolle-label"><g:link controller="${p.objektname}" action="show" id="${p.objektId}">${p?.encodeAsHTML()}</g:link></span>
 						</g:if>
 						<g:else>
-							<span class="property-value" aria-labelledby="partnerrolle-label"><g:fieldValue bean="${p}" field="beschreibung"/></span>
+							<span class="property-value" aria-labelledby="partnerrolle-label"><g:link action="toRueckUri" resource="${p}" ><g:fieldValue bean="${p}" field="beschreibung"/></g:link></span>
 						</g:else>
 						</g:each>
 					
