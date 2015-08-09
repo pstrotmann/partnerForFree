@@ -14,4 +14,8 @@ class RueckUri {
 		RueckUri rueckUri = RueckUri.find ("from RueckUri as rue where rue.anwendung = '${anwendung}'")
 		rueckUri.uri
     }
+	
+	static RueckUri getRueckUri(String anwendung) {
+		RueckUri.find ("from RueckUri as rue where rue.anwendung = '${anwendung}'")
+	}
 }

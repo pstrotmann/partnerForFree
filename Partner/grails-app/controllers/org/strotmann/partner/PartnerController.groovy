@@ -91,4 +91,34 @@ class PartnerController extends RestfulController {
 		redirect(uri: "${Holders.config.saleService}/auftrag/show/${objektId}")
 	}
 	
+	//localhost:8080/Partner/partner/saveRueckUri?anwendung=Sale:Auftrag&uri=134.255.238.190:8080/Sale-0.1/auftrag
+	def saveRueckUri(){
+		String renderText
+		RueckUri rueckUri = RueckUri.getRueckUri(params.anwendung)
+		if (rueckUri)
+			if (rueckUri.uri == params.uri) 
+				renderText = 'ok'
+			else {
+				rueckUri.uri = params.uri
+				renderText = 'save'
+			}
+		else {
+			rueckUri = new RueckUri()
+			rueckUri.anwendung = params.anwendung
+			rueckUri.uri = params.uri
+			renderText = 'save'
+		}
+		if (renderText == 'save')
+			if (rueckUri.save(flush: true))
+				renderText = 'ok'
+			else {
+				rueckUri.errors.each {
+				println it
+				}
+				renderText = 'Speicherfehler'
+			}
+		
+		render text:renderText
+	}
+		
 }
