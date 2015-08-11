@@ -23,7 +23,6 @@ class Partner implements Comparable {
 		tablePerHierarchy false 
 		kommunikationen lazy:false
 		bankverbindungen lazy:false
-		partnerrollen lazy:false
 		postfachadressen lazy:false
 		lieferadressen lazy:false
 		hausadresse lazy:false
