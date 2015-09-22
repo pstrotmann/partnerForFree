@@ -2,6 +2,7 @@ package org.strotmann.partner
 
 import grails.transaction.Transactional;
 import org.springframework.dao.DataIntegrityViolationException
+import org.strotmann.benutzer.Benutzer
 import grails.rest.*
 import grails.converters.JSON
 import grails.util.Holders
@@ -86,10 +87,10 @@ class PartnerController extends RestfulController {
 		render text:'ok'
 	}
 	
-	def showSale(){
+	/*def showSale(){
 		def objektId = 0
 		redirect(uri: "${Holders.config.saleService}/auftrag/show/${objektId}")
-	}
+	}*/
 	
 	//localhost:8080/Partner/partner/saveRueckUri?anwendung=Sale:Auftrag&uri=134.255.238.190:8080/Sale-0.1/auftrag
 	def saveRueckUri(){
@@ -120,5 +121,26 @@ class PartnerController extends RestfulController {
 		
 		render text:renderText
 	}
+	
+	//localhost:8080/Partner/partner/loginAppUser?name=peter&passwort=wuffwuff
+	def loginAppUser(){
+		String renderText
+		def u = Benutzer.findByName(params.name)
+		if (u) {
+			if (u.passwort == params.passwort) {
+				session.user = u
+				renderText = "ok"
+			}
+			else {
+				session.user = null
+				renderText = "Passwort falsch"
+			}
+		}
+		else {
+			session.user = null
+			renderText = "User unbekannt"
+		}
 		
+		render text:renderText
+	}
 }
