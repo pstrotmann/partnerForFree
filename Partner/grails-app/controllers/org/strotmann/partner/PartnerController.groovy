@@ -3,6 +3,7 @@ package org.strotmann.partner
 import grails.transaction.Transactional;
 import org.springframework.dao.DataIntegrityViolationException
 import org.strotmann.benutzer.Benutzer
+import org.strotmann.notiz.Notiz
 import grails.rest.*
 import grails.converters.JSON
 import grails.util.Holders
@@ -87,11 +88,6 @@ class PartnerController extends RestfulController {
 		render text:'ok'
 	}
 	
-	/*def showSale(){
-		def objektId = 0
-		redirect(uri: "${Holders.config.saleService}/auftrag/show/${objektId}")
-	}*/
-	
 	//localhost:8080/Partner/partner/saveRueckUri?anwendung=Sale:Auftrag&uri=134.255.238.190:8080/Sale-0.1/auftrag
 	def saveRueckUri(){
 		String renderText
@@ -127,19 +123,27 @@ class PartnerController extends RestfulController {
 		String renderText
 		def u = Benutzer.findByName(params.name)
 		if (u) {
-			if (u.passwort == params.passwort) {
-				session.user = u
+			if (u.passwort == params.passwort) 
 				renderText = "ok"
-			}
-			else {
-				session.user = null
+			else 
 				renderText = "Passwort falsch"
-			}
 		}
-		else {
-			session.user = null
+		else 
 			renderText = "User unbekannt"
-		}
+		
+		if(renderText == "ok"){
+			def Notiz n = Notiz.find("from Notiz as n where n.notiztext = 'appUser'")
+			if (n) 
+				n.referenz = u.id.toString()
+			else {
+				n = new Notiz()
+				n.anlagetermin = new Date()
+				n.wiedervorlagetermin = new Date()
+				n.notiztext = "appUser"
+				n.referenz = u.id.toString()
+			}
+			n.save(flush: true)
+		}	
 		
 		render text:renderText
 	}
