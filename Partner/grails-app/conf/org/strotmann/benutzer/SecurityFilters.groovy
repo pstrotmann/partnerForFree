@@ -19,13 +19,14 @@ class SecurityFilters {
     }
 	
 	Benutzer appUser(String ctrlName){
-		def Notiz n = Notiz.find("from Notiz as n where n.notiztext = 'appUser'")
 		Benutzer b = null
+		def Notiz n = Notiz.find("from Notiz as n where n.notiztext = 'appUser'")
 		if (n) {  
-			b = Benutzer.get(Long.parseLong(n.referenz))
-			if (ctrlName == 'assets')
-				//n.delete()
-				Notiz.executeUpdate("delete Notiz as n where n.notiztext = 'appUser'")
+			if (Long.parseLong(n.referenz) > 0) {
+				b = Benutzer.get(Long.parseLong(n.referenz))
+				if (ctrlName == 'assets') 
+					Notiz.executeUpdate("update Notiz n set n.referenz='0' where n.notiztext = 'appUser'")
+			}
 		}
 		b
 	}

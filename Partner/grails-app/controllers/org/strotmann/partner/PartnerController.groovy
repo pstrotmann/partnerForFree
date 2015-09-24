@@ -133,8 +133,10 @@ class PartnerController extends RestfulController {
 		
 		if(renderText == "ok"){
 			def Notiz n = Notiz.find("from Notiz as n where n.notiztext = 'appUser'")
-			if (n) 
+			if (n) {
 				n.referenz = u.id.toString()
+				n.wiedervorlagetermin = new Date()
+			}
 			else {
 				n = new Notiz()
 				n.anlagetermin = new Date()
