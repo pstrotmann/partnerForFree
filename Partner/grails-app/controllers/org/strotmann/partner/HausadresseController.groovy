@@ -98,7 +98,7 @@ class HausadresseController {
 	}
 	
 	def plz() {
-		redirect(uri: "http://www.deutschepost.de/plzsuche/PlzSearchServlet?finda=plugin&search={${Hausadresse.strHnr(params.strasse, params.hausnummer)},${Hausadresse.ort(params.ort)}}")
+		redirect(uri: "http://www.postdirekt.de/plzserver/PlzSearchServlet?finda=plugin&search={${Hausadresse.strHnr(params.strasse, params.hausnummer)},${Hausadresse.ort(params.ort)}}")
 	}
 	
 }
