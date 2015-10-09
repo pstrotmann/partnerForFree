@@ -129,6 +129,7 @@ religion=['Römisch-katholische Kirche','Evangelische Kirche in Deutschland (EKD
 pRolle=[Ansprechpartner:'Organisation',Mitarbeiter:'Organisation',Kunde:'Organisation',Freund:'Person']
 oRolle=[Kunde:'Organisation',Lieferant:'Organisation']
 zahlweise = [12:'monatlich',6:'zweimonatlich',4:'vierteljährlich',2:'halbjährlich',1:'jährlich']
+glaeubigerId = ['DE99ZZZ05678901234']
 //IP-Adressen von Webservices
 bicService='http://185.82.21.97:8080/Bic-0.1'
 //emailDaten

@@ -9,6 +9,8 @@ class Bankverbindung {
 	
 	static belongsTo = [partner:Partner]
 	
+	static hasMany = [lastschriftmandate:Lastschriftmandat]
+	
 	static mapping = {
 		iban column: "iban", index: "iban"
 	}
