@@ -1,6 +1,7 @@
 package org.strotmann.partner
 
 import java.util.List;
+
 import grails.util.Holders
 
 class Lastschriftmandat {
@@ -11,6 +12,8 @@ class Lastschriftmandat {
 	Date gueltigAb
 	Date gueltigBis
 	Partner abweichenderSchuldner
+	
+	String toString() {"${glaeubiger.glaeubigerId} ${mandatsReferenz}"}
 	
 	static belongsTo = [bankverbindung:Bankverbindung]
 
@@ -24,10 +27,14 @@ class Lastschriftmandat {
     }
 	
 	static List getMandatTypNum() {
-		List zw = []
+		List mTypen = []
 		Holders.config.mandatTyp.each {
-			zw << it.key
+			mTypen << it.key
 			}
-		zw
+		mTypen
+	}
+	
+	String getMandatTypKlar() {
+		grails.util.Holders.config.mandatTyp [mandatTyp]
 	}
 }

@@ -44,13 +44,13 @@
 					
 						<td><g:link action="show" id="${lastschriftmandatInstance.id}">${fieldValue(bean: lastschriftmandatInstance, field: "glaeubiger")}</g:link></td>
 					
-						<td>${fieldValue(bean: lastschriftmandatInstance, field: "mandatTyp")}</td>
+						<td>${fieldValue(bean: lastschriftmandatInstance, field: "mandatTypKlar")}</td>
 					
 						<td>${fieldValue(bean: lastschriftmandatInstance, field: "mandatsReferenz")}</td>
 					
-						<td><g:formatDate date="${lastschriftmandatInstance.gueltigAb}" /></td>
+						<td><g:formatDate date="${lastschriftmandatInstance.gueltigAb}" format="dd.MM.yyyy"/></td>
 					
-						<td><g:formatDate date="${lastschriftmandatInstance.gueltigBis}" /></td>
+						<td><g:formatDate date="${lastschriftmandatInstance.gueltigBis}" format="dd.MM.yyyy"/></td>
 					
 						<td>${fieldValue(bean: lastschriftmandatInstance, field: "abweichenderSchuldner")}</td>
 					

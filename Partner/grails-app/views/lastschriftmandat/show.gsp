@@ -36,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="mandatTyp-label" class="property-label"><g:message code="lastschriftmandat.mandatTyp.label" default="Mandat Typ" /></span>
 					
-						<span class="property-value" aria-labelledby="mandatTyp-label"><g:fieldValue bean="${lastschriftmandatInstance}" field="mandatTyp"/></span>
+						<span class="property-value" aria-labelledby="mandatTyp-label"><g:fieldValue bean="${lastschriftmandatInstance}" field="mandatTypKlar"/></span>
 					
 				</li>
 				</g:if>
@@ -54,7 +54,7 @@
 				<li class="fieldcontain">
 					<span id="gueltigAb-label" class="property-label"><g:message code="lastschriftmandat.gueltigAb.label" default="Gueltig Ab" /></span>
 					
-						<span class="property-value" aria-labelledby="gueltigAb-label"><g:formatDate date="${lastschriftmandatInstance?.gueltigAb}" /></span>
+						<span class="property-value" aria-labelledby="gueltigAb-label"><g:formatDate date="${lastschriftmandatInstance?.gueltigAb}" format="dd.MM.yyyy"/></span>
 					
 				</li>
 				</g:if>
@@ -63,7 +63,7 @@
 				<li class="fieldcontain">
 					<span id="gueltigBis-label" class="property-label"><g:message code="lastschriftmandat.gueltigBis.label" default="Gueltig Bis" /></span>
 					
-						<span class="property-value" aria-labelledby="gueltigBis-label"><g:formatDate date="${lastschriftmandatInstance?.gueltigBis}" /></span>
+						<span class="property-value" aria-labelledby="gueltigBis-label"><g:formatDate date="${lastschriftmandatInstance?.gueltigBis}" format="dd.MM.yyyy"/></span>
 					
 				</li>
 				</g:if>

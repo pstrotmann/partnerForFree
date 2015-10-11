@@ -16,7 +16,7 @@
 		<g:message code="lastschriftmandat.mandatTyp.label" default="Mandat Typ" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="mandatTyp" from="${lastschriftmandatInstance.constraints.mandatTyp.inList}" required="" value="${fieldValue(bean: lastschriftmandatInstance, field: 'mandatTyp')}" valueMessagePrefix="lastschriftmandat.mandatTyp"/>
+	<g:select name="mandatTyp" from="${lastschriftmandatInstance.constraints.mandatTyp.inList}" valueMessagePrefix="mandatTyp.category"/>
 
 </div>
 
