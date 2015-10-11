@@ -128,8 +128,8 @@ religion=['Römisch-katholische Kirche','Evangelische Kirche in Deutschland (EKD
 //rolle:objektname
 pRolle=[Ansprechpartner:'Organisation',Mitarbeiter:'Organisation',Kunde:'Organisation',Freund:'Person']
 oRolle=[Kunde:'Organisation',Lieferant:'Organisation']
-zahlweise = [12:'monatlich',6:'zweimonatlich',4:'vierteljährlich',2:'halbjährlich',1:'jährlich']
 glaeubigerId = ['DE99ZZZ05678901234']
+mandatTyp = [11:'Basis Einmalig',12:'Basis Wiederkehrend',21:'Firmen Einmalig',22:'Firmen Wiederkehrend']
 //IP-Adressen von Webservices
 bicService='http://185.82.21.97:8080/Bic-0.1'
 //emailDaten

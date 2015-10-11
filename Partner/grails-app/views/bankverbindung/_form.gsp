@@ -29,3 +29,20 @@
 	</g:else>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: bankverbindungInstance, field: 'lastschriftmandat', 'error')} ">
+	<label for="lastschriftmandate">
+		<g:message code="bankverbindung.lastschriftmandate.label"/>
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${bankverbindungInstance?.lastschriftmandate?}" var="l">
+    <li><g:link controller="lastschriftmandat" action="show" id="${l.id}">${l?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="lastschriftmandat" action="create" params="['bankverbindung.id': bankverbindungInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'lastschriftmandat.label', default: 'Lastschriftmandat')])}</g:link>
+</li>
+</ul>
+
+</div>
+

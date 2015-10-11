@@ -10,6 +10,7 @@ class Organisation extends Partner {
 	String nameZusatz 
 	String rechtsform 
 	Branche branche 
+	String glaeubigerId
 		
 	static constraints = {
 		name(blank:false,size:1..80,matches:"[a-zäöüßA-ZÄÖÜ0-9\\- .&,()/+]+",
@@ -37,7 +38,12 @@ class Organisation extends Partner {
 		rechtsform (inList:rechtsformen,nullable:true)
 		branche (nullable:true)
 		hausadresse (nullable:true)
+		glaeubigerId (inList:glaeubigerIds,nullable:true, size: 18..18)
     }
+	
+	static mapping = {
+		glaeubigerId column: 'Glaeubiger_Id', index: 'Glaeubiger_Id_Idx'
+	}
 	
 	static List getMiniList () {
 		Organisation.findAll("from Organisation as o order by o.name")
@@ -59,6 +65,9 @@ class Organisation extends Partner {
 			))
 	}
 	
+	static List getGlaeubiger () {
+		Organisation.findAll("from Organisation as o where o.glaeubigerId is not null")
+	}
 	
 	List <Object> getRollenobjekte () {
 		List l = []
@@ -72,6 +81,10 @@ class Organisation extends Partner {
 	
 	static List getRechtsformen () {
 		Holders.config.rechtsform
+	}
+	
+	static List getGlaeubigerIds () {
+		Holders.config.glaeubigerId
 	}
 	
 	static Organisation zweiNachEins (Organisation o1, Organisation o2, Map c2) {

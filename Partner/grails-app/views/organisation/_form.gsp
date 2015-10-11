@@ -144,6 +144,14 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: organisationInstance, field: 'glaeubigerId', 'error')} ">
+	<label for="glaeubigerId">
+		<g:message code="organisation.glaeubigerId.label"/>
+		
+	</label>
+	<g:select name="glaeubigerId" from="${organisationInstance.constraints.glaeubigerId.inList}" value="${organisationInstance?.glaeubigerId}" valueMessagePrefix="organisation.glaeubigerId" noSelection="['': '']"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: organisationInstance, field: 'notizen', 'error')} ">
 	<label for="notizen">
 		<g:message code="person.notizen.label"/>

@@ -145,6 +145,15 @@
 				</li>
 				</g:if>
 				
+				<g:if test="${organisationInstance?.glaeubigerId}">
+				<li class="fieldcontain">
+					<span id="glaeubigerId-label" class="property-label"><g:message code="organisation.glaeubigerId.label"/></span>
+					
+						<span class="property-value" aria-labelledby="glaeubigerId-label"><g:fieldValue bean="${organisationInstance}" field="glaeubigerId"/></span>
+					
+				</li>
+				</g:if>
+				
 				<li class="fieldcontain">
 					<span id="notizen-label" class="property-label"><g:message code="person.notizen.label" default="Notizen" /></span>
 					

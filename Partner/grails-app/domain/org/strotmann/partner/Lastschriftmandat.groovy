@@ -5,19 +5,29 @@ import grails.util.Holders
 
 class Lastschriftmandat {
 	
-	String glaeubigerId
+	Organisation glaeubiger
+	int mandatTyp
 	String mandatsReferenz
+	Date gueltigAb
+	Date gueltigBis
 	Partner abweichenderSchuldner
 	
 	static belongsTo = [bankverbindung:Bankverbindung]
 
     static constraints = {
-		glaeubigerId(inList:glaeubigerIds)
-		mandatsReferenz()
+		glaeubiger()
+		mandatTyp (inList: mandatTypNum)
+		mandatsReferenz(unique: ['bankverbindung', 'glaeubiger', 'gueltigAb'])
+		gueltigAb()
+		gueltigBis(nullable : true)
 		abweichenderSchuldner(nullable : true)
     }
 	
-	static List getGlaeubigerIds () {
-		Holders.config.glaeubigerId
+	static List getMandatTypNum() {
+		List zw = []
+		Holders.config.mandatTyp.each {
+			zw << it.key
+			}
+		zw
 	}
 }
