@@ -4,16 +4,25 @@
 
 <div class="fieldcontain ${hasErrors(bean: lastschriftmandatInstance, field: 'glaeubiger', 'error')} required">
 	<label for="glaeubiger">
-		<g:message code="lastschriftmandat.glaeubiger.label" />
+		<g:message code="lastschriftmandat.glaeubiger.label" default="Glaeubiger" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="glaeubiger" name="glaeubiger.id" from="${org.strotmann.partner.Organisation.glaeubiger}" optionKey="id" required="" value="${lastschriftmandatInstance?.glaeubiger?.id}" class="many-to-one"/>
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: lastschriftmandatInstance, field: 'mandatTyp', 'error')} required">
+	<label for="mandatTyp">
+		<g:message code="lastschriftmandat.mandatTyp.label" default="Mandat Typ" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select name="mandatTyp" from="${lastschriftmandatInstance.constraints.mandatTyp.inList}" required="" value="${fieldValue(bean: lastschriftmandatInstance, field: 'mandatTyp')}" valueMessagePrefix="lastschriftmandat.mandatTyp"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: lastschriftmandatInstance, field: 'mandatsReferenz', 'error')} required">
 	<label for="mandatsReferenz">
-		<g:message code="lastschriftmandat.mandatsReferenz.label" default="Mandatsreferenz" />
+		<g:message code="lastschriftmandat.mandatsReferenz.label" default="Mandats Referenz" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="mandatsReferenz" required="" value="${lastschriftmandatInstance?.mandatsReferenz}"/>
@@ -52,7 +61,11 @@
 		<g:message code="lastschriftmandat.bankverbindung.label" default="Bankverbindung" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="bankverbindung" name="bankverbindung.id" from="${org.strotmann.partner.Bankverbindung.list()}" optionKey="id" required="" value="${lastschriftmandatInstance?.bankverbindung?.id}" class="many-to-one"/>
-
+	<g:if test="${flash.Bankverbindung}">
+		<g:select id="bankverbindung" name="bankverbindung.id" from="${flash.bankverbindung}" optionKey="id" required="" value="${lastschriftmandatInstance?.bankverbindung?.id}" class="many-to-one"/>
+	</g:if>
+	<g:else>
+		<g:select id="bankverbindung" name="bankverbindung.id" from="${org.strotmann.partner.Bankverbindung.list()}" optionKey="id" required="" value="${lastschriftmandatInstance?.bankverbindung?.id}" class="many-to-one"/>
+	</g:else>
 </div>
 

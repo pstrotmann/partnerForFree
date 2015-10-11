@@ -26,6 +26,8 @@
 					
 						<th><g:message code="lastschriftmandat.glaeubiger.label" default="Glaeubiger" /></th>
 					
+						<g:sortableColumn property="mandatTyp" title="${message(code: 'lastschriftmandat.mandatTyp.label', default: 'Mandat Typ')}" />
+					
 						<g:sortableColumn property="mandatsReferenz" title="${message(code: 'lastschriftmandat.mandatsReferenz.label', default: 'Mandats Referenz')}" />
 					
 						<g:sortableColumn property="gueltigAb" title="${message(code: 'lastschriftmandat.gueltigAb.label', default: 'Gueltig Ab')}" />
@@ -33,8 +35,6 @@
 						<g:sortableColumn property="gueltigBis" title="${message(code: 'lastschriftmandat.gueltigBis.label', default: 'Gueltig Bis')}" />
 					
 						<th><g:message code="lastschriftmandat.abweichenderSchuldner.label" default="Abweichender Schuldner" /></th>
-					
-						<th><g:message code="lastschriftmandat.bankverbindung.label" default="Bankverbindung" /></th>
 					
 					</tr>
 				</thead>
@@ -44,6 +44,8 @@
 					
 						<td><g:link action="show" id="${lastschriftmandatInstance.id}">${fieldValue(bean: lastschriftmandatInstance, field: "glaeubiger")}</g:link></td>
 					
+						<td>${fieldValue(bean: lastschriftmandatInstance, field: "mandatTyp")}</td>
+					
 						<td>${fieldValue(bean: lastschriftmandatInstance, field: "mandatsReferenz")}</td>
 					
 						<td><g:formatDate date="${lastschriftmandatInstance.gueltigAb}" /></td>
@@ -51,8 +53,6 @@
 						<td><g:formatDate date="${lastschriftmandatInstance.gueltigBis}" /></td>
 					
 						<td>${fieldValue(bean: lastschriftmandatInstance, field: "abweichenderSchuldner")}</td>
-					
-						<td>${fieldValue(bean: lastschriftmandatInstance, field: "bankverbindung")}</td>
 					
 					</tr>
 				</g:each>

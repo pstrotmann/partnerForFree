@@ -32,6 +32,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${lastschriftmandatInstance?.mandatTyp}">
+				<li class="fieldcontain">
+					<span id="mandatTyp-label" class="property-label"><g:message code="lastschriftmandat.mandatTyp.label" default="Mandat Typ" /></span>
+					
+						<span class="property-value" aria-labelledby="mandatTyp-label"><g:fieldValue bean="${lastschriftmandatInstance}" field="mandatTyp"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${lastschriftmandatInstance?.mandatsReferenz}">
 				<li class="fieldcontain">
 					<span id="mandatsReferenz-label" class="property-label"><g:message code="lastschriftmandat.mandatsReferenz.label" default="Mandats Referenz" /></span>
