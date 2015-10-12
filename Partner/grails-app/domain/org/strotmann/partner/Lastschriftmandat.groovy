@@ -13,7 +13,7 @@ class Lastschriftmandat {
 	Date gueltigBis
 	Partner abweichenderSchuldner
 	
-	String toString() {"${glaeubiger.glaeubigerId} ${mandatsReferenz}"}
+	String toString() {glaeubiger?"${glaeubiger.glaeubigerId} ${mandatsReferenz}":""}
 	
 	static belongsTo = [bankverbindung:Bankverbindung]
 
