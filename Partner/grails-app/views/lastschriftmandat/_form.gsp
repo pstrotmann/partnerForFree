@@ -60,11 +60,6 @@
 		<g:message code="lastschriftmandat.bankverbindung.label" default="Bankverbindung" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:if test="${flash.Bankverbindung}">
-		<g:select id="bankverbindung" name="bankverbindung.id" from="${flash.bankverbindung}" optionKey="id" required="" value="${lastschriftmandatInstance?.bankverbindung?.id}" class="many-to-one"/>
-	</g:if>
-	<g:else>
-		<g:select id="bankverbindung" name="bankverbindung.id" from="${org.strotmann.partner.Bankverbindung.list()}" optionKey="id" required="" value="${lastschriftmandatInstance?.bankverbindung?.id}" class="many-to-one"/>
-	</g:else>
+	<g:select id="bankverbindung" name="bankverbindung.id" from="${org.strotmann.partner.Bankverbindung.list()}" optionKey="id" required="" value="${lastschriftmandatInstance?.bankverbindung?.id}" class="many-to-one"/>
 </div>
 

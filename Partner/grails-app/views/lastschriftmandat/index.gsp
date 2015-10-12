@@ -24,17 +24,19 @@
 			<thead>
 					<tr>
 					
+						<g:sortableColumn property="mandatsReferenz" title="${message(code: 'lastschriftmandat.mandatsReferenz.label', default: 'Mandats Referenz')}" />
+						
+						<g:sortableColumn property="mandatTyp" title="${message(code: 'lastschriftmandat.mandatTyp.label', default: 'Typ')}" />
+						
+						<th><g:message code="lastschriftmandat.abweichenderSchuldner.label" default="Schuldner" /></th>
+						
 						<th><g:message code="lastschriftmandat.glaeubiger.label" default="Glaeubiger" /></th>
 					
-						<g:sortableColumn property="mandatTyp" title="${message(code: 'lastschriftmandat.mandatTyp.label', default: 'Mandat Typ')}" />
-					
-						<g:sortableColumn property="mandatsReferenz" title="${message(code: 'lastschriftmandat.mandatsReferenz.label', default: 'Mandats Referenz')}" />
+						<th><g:message code="lastschriftmandat.glaeubigerId.label" default="Id" /></th>
 					
 						<g:sortableColumn property="gueltigAb" title="${message(code: 'lastschriftmandat.gueltigAb.label', default: 'Gueltig Ab')}" />
 					
 						<g:sortableColumn property="gueltigBis" title="${message(code: 'lastschriftmandat.gueltigBis.label', default: 'Gueltig Bis')}" />
-					
-						<th><g:message code="lastschriftmandat.abweichenderSchuldner.label" default="Abweichender Schuldner" /></th>
 					
 					</tr>
 				</thead>
@@ -42,17 +44,19 @@
 				<g:each in="${lastschriftmandatInstanceList}" status="i" var="lastschriftmandatInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${lastschriftmandatInstance.id}">${fieldValue(bean: lastschriftmandatInstance, field: "glaeubiger")}</g:link></td>
+						<td><g:link action="show" id="${lastschriftmandatInstance.id}">${fieldValue(bean: lastschriftmandatInstance, field: "mandatsReferenz")}</g:link></td>
 					
 						<td>${fieldValue(bean: lastschriftmandatInstance, field: "mandatTypKlar")}</td>
+						
+						<td>${fieldValue(bean: lastschriftmandatInstance, field: "schuldner")}</td>
+						
+						<td>${fieldValue(bean: lastschriftmandatInstance, field: "glaeubiger")}</td>
 					
-						<td>${fieldValue(bean: lastschriftmandatInstance, field: "mandatsReferenz")}</td>
+						<td>${fieldValue(bean: lastschriftmandatInstance, field: "glaeubiger.glaeubigerId")}</td>
 					
 						<td><g:formatDate date="${lastschriftmandatInstance.gueltigAb}" format="dd.MM.yyyy"/></td>
 					
 						<td><g:formatDate date="${lastschriftmandatInstance.gueltigBis}" format="dd.MM.yyyy"/></td>
-					
-						<td>${fieldValue(bean: lastschriftmandatInstance, field: "abweichenderSchuldner")}</td>
 					
 					</tr>
 				</g:each>

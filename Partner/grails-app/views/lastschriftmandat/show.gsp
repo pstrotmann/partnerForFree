@@ -23,11 +23,11 @@
 			</g:if>
 			<ol class="property-list lastschriftmandat">
 			
-				<g:if test="${lastschriftmandatInstance?.glaeubiger}">
+				<g:if test="${lastschriftmandatInstance?.schuldner}">
 				<li class="fieldcontain">
-					<span id="glaeubiger-label" class="property-label"><g:message code="lastschriftmandat.glaeubiger.label" default="Glaeubiger" /></span>
+					<span id="schuldner-label" class="property-label"><g:message code="lastschriftmandat.schuldner.label" default="Schuldner" /></span>
 					
-						<span class="property-value" aria-labelledby="glaeubiger-label"><g:link controller="organisation" action="show" id="${lastschriftmandatInstance?.glaeubiger?.id}">${lastschriftmandatInstance?.glaeubiger?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="schuldner-label"><g:link controller="organisation" action="show" id="${lastschriftmandatInstance?.schuldner?.id}">${lastschriftmandatInstance?.schuldner?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -48,6 +48,21 @@
 						<span class="property-value" aria-labelledby="mandatsReferenz-label"><g:fieldValue bean="${lastschriftmandatInstance}" field="mandatsReferenz"/></span>
 					
 				</li>
+				</g:if>
+				
+				<g:if test="${lastschriftmandatInstance?.glaeubiger}">
+				<li class="fieldcontain">
+					<span id="glaeubiger-label" class="property-label"><g:message code="lastschriftmandat.glaeubiger.label" default="Glaeubiger" /></span>
+					
+						<span class="property-value" aria-labelledby="glaeubiger-label">
+						<g:link controller="organisation" action="show" id="${lastschriftmandatInstance?.glaeubiger?.id}">
+							${lastschriftmandatInstance?.glaeubiger?.encodeAsHTML()} 
+							${lastschriftmandatInstance?.glaeubiger?.glaeubigerId.encodeAsHTML()}
+						</g:link>
+						</span>
+					
+				</li>
+				
 				</g:if>
 			
 				<g:if test="${lastschriftmandatInstance?.gueltigAb}">

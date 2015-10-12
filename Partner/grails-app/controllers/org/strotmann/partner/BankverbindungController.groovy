@@ -31,7 +31,6 @@ class BankverbindungController {
 		def bankverbindungInstance = Bankverbindung.get(id)
 		flash.person = bankverbindungInstance.getPerson()
 		flash.partner = bankverbindungInstance.partner
-		flash.bankverbindung = bankverbindungInstance
 		if (!bankverbindungInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'bankverbindung.label', default: 'Bankverbindung'), id])
 			redirect(action: "list")

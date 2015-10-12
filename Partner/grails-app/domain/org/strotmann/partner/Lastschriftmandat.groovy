@@ -37,4 +37,8 @@ class Lastschriftmandat {
 	String getMandatTypKlar() {
 		grails.util.Holders.config.mandatTyp [mandatTyp]
 	}
+	
+	Partner getSchuldner() {
+		abweichenderSchuldner?abweichenderSchuldner:bankverbindung.partner
+	}
 }
