@@ -7,6 +7,8 @@ import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class LastschriftmandatController {
+	
+	def pdfRenderingService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -101,4 +103,10 @@ class LastschriftmandatController {
             '*'{ render status: NOT_FOUND }
         }
     }
+	
+	def renderFormPDF(){
+		def formInstance = Lastschriftmandat.get(params.id)
+		def args = [template:"pdf", model:[form:formInstance]]
+		pdfRenderingService.render(args+[controller:this],response)
+	}
 }
