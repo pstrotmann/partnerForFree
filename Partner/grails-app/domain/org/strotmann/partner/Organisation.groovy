@@ -3,6 +3,7 @@ package org.strotmann.partner
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+
 import grails.util.Holders
 
 class Organisation extends Partner {
@@ -45,10 +46,12 @@ class Organisation extends Partner {
 		glaeubigerId column: 'Glaeubiger_Id', index: 'Glaeubiger_Id_Idx'
 	}
 	
+	String toString() {"${rechtsform?name+' '+rechtsform:'Firma '+name}" }
+	
 	static List getMiniList () {
 		Organisation.findAll("from Organisation as o order by o.name")
 	}
-		
+	
 	static List getPhOrganisationList () {
 		
 		List l1 = Organisation.findAll("from Organisation as o order by o.hausadresse.postleitzahl, o.phName")

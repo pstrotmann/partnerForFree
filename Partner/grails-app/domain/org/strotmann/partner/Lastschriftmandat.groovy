@@ -45,11 +45,11 @@ class Lastschriftmandat {
 	}
 	
 	Boolean getBasis() {
-		!(bankverbindung.partner instanceof Organisation)
+		Person.get(bankverbindung.partner.id)?true:false
 	}
 	
 	Boolean getFirma() {
-		bankverbindung.partner instanceof Organisation
+		Organisation.get(bankverbindung.partner.id)?true:false
 	}
 	
 	Partner getSchuldner() {
