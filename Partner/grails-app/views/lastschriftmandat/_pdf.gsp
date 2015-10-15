@@ -32,22 +32,22 @@
   <div class="body">
   		<table style="width:100%">
 			<tr>
-				<td><b>Gabriele und Peter Strotmann</b></td>
-			    <td>              </td>
-			    <td>              </td>
-			    <td>Tel.: 0231-803441</td>
-			</tr>
-			<tr>
-				<td>Am Gulloh 49</td>
+				<td><b>${form?.glaeubiger}</b></td>
 			    <td>              </td>
 			    <td>              </td>
 			    <td>              </td>
 			</tr>
 			<tr>
-				<td>44339 Dortmund</td>
+				<td>${form?.glaeubiger.strasseHausnummer}</td>
+			    <td>              </td>
+			    <td>              </td>
+			    <td>              </td>
+			</tr>
+			<tr>
+				<td>${form?.glaeubiger.plzOrt}</td>
 				<td> </td>
 				<td> </td>
-			    <td>${form?.gueltigAb}</td>
+			    <td>${form?.gueltigAbKlar}</td>
 			</tr>
 		</table>
 		
@@ -55,16 +55,46 @@
 
 		<table>
 			<tr>
-				<td>${form?.mandatTypKlar}</td>
+				<td>Gläubiger-Identifikationsnummer ${form?.glaeubiger.glaeubigerId}</td>
 			</tr>
 			<tr>
-				<td>${form?.mandatsReferenz}</td>
+				<td>Mandatsreferenz ${form?.mandatsReferenz}</td>
 			</tr>
+			
 		</table>
 		
+		<p><b>Sepa Lastschriftmandat</b></p>
+		
+		<g:if test="${form?.mandatTyp == 1 && form?.basis}">
 		<p>
-		dieses ist ein Sepa Lastschriftmandat mit obigen Daten
+			Ich ermächtige ${form?.glaeubiger}, einmalig eine Zahlung von
+			meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein
+			Kreditinstitut an, die von ${form?.glaeubiger} auf mein Konto
+			gezogene Lastschrift einzulösen. 
 		</p>
+		</g:if>
+		<g:if test="${form?.mandatTyp == 2 && form?.basis}">
+		<p>
+			Ich ermächtige ${form?.glaeubiger}, Zahlungen von meinem Konto mittels
+			Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von
+			${form?.glaeubiger} auf mein Konto gezogenen Lastschriften einzulösen. 
+		</p>
+		</g:if>
+		<g:if test="${form?.mandatTyp == 1 && form?.firma}">
+		<p>
+			Wir ermächtigen ${form?.glaeubiger}, einmalig eine Zahlung von
+			unserem Konto mittels Lastschrift einzuziehen. Zugleich weisen wir unser
+			Kreditinstitut an, die von ${form?.glaeubiger} auf unser Konto
+			gezogene Lastschrift einzulösen. 
+		</p>
+		</g:if>
+		<g:if test="${form?.mandatTyp == 2 && form?.firma}">
+		<p>
+			Wir ermächtigen ${form?.glaeubiger}, Zahlungen von unserem Konto mittels
+			Lastschrift einzuziehen. Zugleich weisen wir unser Kreditinstitut an, die von
+			${form?.glaeubiger} auf unser Konto gezogenen Lastschriften einzulösen. 
+		</p>
+		</g:if>
 			
 	</div>
 </body>

@@ -40,4 +40,12 @@ class Partner implements Comparable {
 		name.compareTo(obj.name)
 	}
 	
+	String getStrasseHausnummer() {
+		hausadresse?"${hausadresse.strasse} ${hausadresse.hausnummer} ${hausadresse.zusatz?hausadresse.zusatz:''}":""
+	}
+	
+	String getPlzOrt() {
+		hausadresse?"${hausadresse.postleitzahl} ${hausadresse.ort}":""
+	}
+	
 }

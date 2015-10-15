@@ -1,5 +1,6 @@
 package org.strotmann.partner
 
+import java.text.SimpleDateFormat
 import java.util.List;
 
 import grails.util.Holders
@@ -36,6 +37,19 @@ class Lastschriftmandat {
 	
 	String getMandatTypKlar() {
 		grails.util.Holders.config.mandatTyp [mandatTyp]
+	}
+	
+	String getGueltigAbKlar() {
+		SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy")
+		df.format(gueltigAb)
+	}
+	
+	Boolean getBasis() {
+		!(bankverbindung.partner instanceof Organisation)
+	}
+	
+	Boolean getFirma() {
+		bankverbindung.partner instanceof Organisation
 	}
 	
 	Partner getSchuldner() {

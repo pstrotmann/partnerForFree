@@ -66,7 +66,8 @@ class Hausadresse extends Adresse implements Comparable {
 		u
 	}
 	
-	List <Partner> getBewohner () {
-		return(Partner.findAll("from Partner as p where p.hausadresse.id = ${this.id} order by p.name"))
-	}
+ 	List <Partner> getBewohner () {
+ 		return(Partner.findAll("from Partner as p where p.hausadresse.id = ${this.id} order by p.name"))
+ 	}
+ 	
 }

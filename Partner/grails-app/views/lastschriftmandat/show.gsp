@@ -1,5 +1,6 @@
 
 <%@ page import="org.strotmann.partner.Lastschriftmandat" %>
+<%@ page import="org.strotmann.partner.Organisation" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -28,7 +29,14 @@
 				<li class="fieldcontain">
 					<span id="schuldner-label" class="property-label"><g:message code="lastschriftmandat.schuldner.label" default="Schuldner" /></span>
 					
-						<span class="property-value" aria-labelledby="schuldner-label"><g:link controller="organisation" action="show" id="${lastschriftmandatInstance?.schuldner?.id}">${lastschriftmandatInstance?.schuldner?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="schuldner-label">
+						<g:if test="${lastschriftmandatInstance?.schuldner instanceof Organisation}">
+							<g:link controller="organisation" action="show" id="${lastschriftmandatInstance?.schuldner?.id}">${lastschriftmandatInstance?.schuldner?.encodeAsHTML()}</g:link>
+						</g:if>
+						<g:else>
+							<g:link controller="person" action="show" id="${lastschriftmandatInstance?.schuldner?.id}">${lastschriftmandatInstance?.schuldner?.encodeAsHTML()}</g:link>
+						</g:else>
+						</span>
 					
 				</li>
 				</g:if>
