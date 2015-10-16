@@ -38,16 +38,16 @@
 			    <td>              </td>
 			</tr>
 			<tr>
-				<td>${form?.glaeubiger.strasseHausnummer}</td>
+				<td>${form.glaeubiger.postfachNr?'Postfach '+form.glaeubiger.postfachNr:form.glaeubiger.strasseHausnummer}</td>
 			    <td>              </td>
 			    <td>              </td>
 			    <td>              </td>
 			</tr>
 			<tr>
-				<td>${form?.glaeubiger.plzOrt}</td>
+				<td>${form.glaeubiger.postfachNr?form.glaeubiger.postfachPlzOrt:form.glaeubiger.plzOrt}</td>
 				<td> </td>
 				<td> </td>
-			    <td>${form?.gueltigAbKlar}</td>
+			    <td> </td>
 			</tr>
 		</table>
 		
@@ -55,46 +55,72 @@
 
 		<table>
 			<tr>
-				<td>Gläubiger-Identifikationsnummer ${form?.glaeubiger.glaeubigerId}</td>
+				<td>Gläubiger-Identifikationsnummer <b>${form?.glaeubiger.glaeubigerId}</b></td>
 			</tr>
 			<tr>
-				<td>Mandatsreferenz ${form?.mandatsReferenz}</td>
+				<td>Mandatsreferenz <b>${form?.mandatsReferenz}</b></td>
 			</tr>
 			
 		</table>
 		
 		<p><b>Sepa Lastschriftmandat</b></p>
+		<hr width="100"></hr>
 		
-		<g:if test="${form?.mandatTyp == 1 && form?.basis}">
-		<p>
-			Ich ermächtige ${form?.glaeubiger}, einmalig eine Zahlung von
-			meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein
-			Kreditinstitut an, die von ${form?.glaeubiger} auf mein Konto
-			gezogene Lastschrift einzulösen. 
-		</p>
+		<g:if test="${form?.basis}">
+			<p>
+				Ich ermächtige ${form?.glaeubiger}, ${form?.mandatTyp == 1?'einmalig eine Zahlung':'Zahlungen'} von
+				meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein
+				Kreditinstitut an, die von ${form?.glaeubiger} auf mein Konto
+				${form?.mandatTyp == 1?'gezogene Lastschrift':'gezogenen Lastschriften'} einzulösen. 
+			</p>
+			<p>
+				Hinweis: Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum,
+				die Erstattung des belasteten Betrages verlangen. Es gelten
+				dabei die mit meinem Kreditinstitut vereinbarten Bedingungen. 
+			</p>
 		</g:if>
-		<g:if test="${form?.mandatTyp == 2 && form?.basis}">
-		<p>
-			Ich ermächtige ${form?.glaeubiger}, Zahlungen von meinem Konto mittels
-			Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von
-			${form?.glaeubiger} auf mein Konto gezogenen Lastschriften einzulösen. 
-		</p>
-		</g:if>
-		<g:if test="${form?.mandatTyp == 1 && form?.firma}">
-		<p>
-			Wir ermächtigen ${form?.glaeubiger}, einmalig eine Zahlung von
-			unserem Konto mittels Lastschrift einzuziehen. Zugleich weisen wir unser
-			Kreditinstitut an, die von ${form?.glaeubiger} auf unser Konto
-			gezogene Lastschrift einzulösen. 
-		</p>
-		</g:if>
-		<g:if test="${form?.mandatTyp == 2 && form?.firma}">
-		<p>
-			Wir ermächtigen ${form?.glaeubiger}, Zahlungen von unserem Konto mittels
-			Lastschrift einzuziehen. Zugleich weisen wir unser Kreditinstitut an, die von
-			${form?.glaeubiger} auf unser Konto gezogenen Lastschriften einzulösen. 
-		</p>
-		</g:if>
+		<g:else>
+			<p>
+				Wir ermächtigen ${form?.glaeubiger}, ${form?.mandatTyp == 1?'einmalig eine Zahlung':'Zahlungen'} von
+				unserem Konto mittels Lastschrift einzuziehen. Zugleich weisen wir unser
+				Kreditinstitut an, die von ${form?.glaeubiger} auf unser Konto
+				${form?.mandatTyp == 1?'gezogene Lastschrift':'gezogenen Lastschriften'} einzulösen. 
+			</p>
+			<p>
+				Hinweis: Dieses Lastschriftmandat dient nur dem Einzug von Lastschriften,
+				die auf Konten von Unternehmen gezogen sind. Wir sind nicht berechtigt,
+				nach der erfolgten Einlösung eine Erstattung des belasteten Betrages zu
+				verlangen. Wir sind berechtigt, unser Kreditinstitut bis zum Fälligkeitstag
+				anzuweisen, ${form?.mandatTyp == 1?'die Lastschrift':'Lastschriften'} nicht einzulösen. 
+			</p>
+		</g:else>
+		
+		<table style="width:100%">
+			<tr>
+				<td>Kontoinhaber</td>
+				<td>_________________________</td>
+			</tr>
+			<tr>
+				<td>Anschrift</td>
+				<td>_________________________</td>
+			</tr>
+			<tr>
+				<td>Geldinstitut</td>
+				<td>_________________________</td>
+			</tr>
+			<tr>
+				<td>IBAN</td>
+				<td>_________________________</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Ort, Datum</td>
+				<td>Unterschift Kontoinhaber</td>
+			</tr>
+		</table>
 			
 	</div>
 </body>

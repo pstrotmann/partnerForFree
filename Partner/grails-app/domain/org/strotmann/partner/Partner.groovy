@@ -40,12 +40,20 @@ class Partner implements Comparable {
 		name.compareTo(obj.name)
 	}
 	
+	Integer getPostfachNr() {
+		postfachadressen.size() > 0 ? postfachadressen[0].postfach:null
+	}
+	
 	String getStrasseHausnummer() {
 		hausadresse?"${hausadresse.strasse} ${hausadresse.hausnummer} ${hausadresse.zusatz?hausadresse.zusatz:''}":""
 	}
 	
 	String getPlzOrt() {
 		hausadresse?"${hausadresse.postleitzahl} ${hausadresse.ort}":""
+	}
+	
+	String getPostfachPlzOrt() {
+		postfachadressen.size() > 0 ? "${postfachadressen[0].postleitzahl} ${postfachadressen[0].ort}":""
 	}
 	
 }
