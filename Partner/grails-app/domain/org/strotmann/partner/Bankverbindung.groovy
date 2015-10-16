@@ -9,8 +9,6 @@ class Bankverbindung {
 	
 	static belongsTo = [partner:Partner]
 	
-	static hasMany = [lastschriftmandate:Lastschriftmandat]
-	
 	static mapping = {
 		iban column: "iban", index: "iban"
 	}
@@ -30,7 +28,7 @@ class Bankverbindung {
 		return new IBANCheckDigit().isValid(iban)
 	}
 	
-	static boolean checkBIC (String bic,iban) {
+	static boolean checkBIC (String bic, String iban) {
 		if (bic == null)
 			return true
 		Map bkMap = Bank.bankdaten(null,bic)

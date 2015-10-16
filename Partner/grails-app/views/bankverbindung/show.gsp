@@ -71,16 +71,6 @@
 				</li>
 				</g:if>
 				
-				<g:if test="${bankverbindungInstance?.lastschriftmandate}">
-				<li class="fieldcontain">
-					<span id="lastschriftmandat-label" class="property-label"><g:message code="bankverbindung.lastschriftmandate.label"/></span>
-					
-						<g:each in="${bankverbindungInstance.lastschriftmandate}" var="l">
-						<span class="property-value" aria-labelledby="lastschriftmandat-label"><g:link controller="lastschriftmandat" action="show" id="${l.id}">${l?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
 			
 			</ol>
 			<g:form>

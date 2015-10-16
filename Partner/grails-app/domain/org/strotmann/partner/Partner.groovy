@@ -16,8 +16,10 @@ class Partner implements Comparable {
 						bankverbindungen:Bankverbindung,
 						partnerrollen:Partnerrolle,
 						postfachadressen:Postfachadresse,
+						lastschriftmandate:Lastschriftmandat,
 						lieferadressen:Lieferadresse]
 	
+	static mappedBy = [lastschriftmandate:"schuldner"]
 	
 	static mapping = {
 		tablePerHierarchy false 
@@ -26,6 +28,7 @@ class Partner implements Comparable {
 		postfachadressen lazy:false
 		lieferadressen lazy:false
 		hausadresse lazy:false
+		lastschriftmandate lazy:false
 	}
 		
 	static constraints = {

@@ -144,6 +144,23 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: organisationInstance, field: 'lastschriftmandat', 'error')} ">
+	<label for="lastschriftmandate">
+		<g:message code="person.lastschriftmandate.label"/>
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${organisationInstance?.lastschriftmandate?}" var="l">
+    <li><g:link controller="lastschriftmandat" action="show" id="${l.id}">${l?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="lastschriftmandat" action="create" params="['organisation.id': organisationInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'lastschriftmandat.label', default: 'Lastschriftmandat')])}</g:link>
+</li>
+</ul>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: organisationInstance, field: 'glaeubigerId', 'error')} ">
 	<label for="glaeubigerId">
 		<g:message code="organisation.glaeubigerId.label"/>

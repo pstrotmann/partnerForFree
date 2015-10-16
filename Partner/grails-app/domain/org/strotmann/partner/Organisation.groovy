@@ -12,7 +12,7 @@ class Organisation extends Partner {
 	String rechtsform 
 	Branche branche 
 	String glaeubigerId
-		
+	
 	static constraints = {
 		name(blank:false,size:1..80,matches:"[a-zäöüßA-ZÄÖÜ0-9\\- .&,()/+]+",
 			//unique:['nameZusatz','rechtsform']

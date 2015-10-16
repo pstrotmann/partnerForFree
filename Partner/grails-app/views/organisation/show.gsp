@@ -113,6 +113,17 @@
 				</li>
 				</g:if>
 				
+				<g:if test="${organisationInstance?.lastschriftmandate}">
+				<li class="fieldcontain">
+					<span id="lastschriftmandat-label" class="property-label"><g:message code="person.lastschriftmandate.label"/></span>
+					
+						<g:each in="${organisationInstance.lastschriftmandate}" var="l">
+						<span class="property-value" aria-labelledby="lastschriftmandat-label"><g:link controller="lastschriftmandat" action="show" id="${l.id}">${l?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+				
 				<g:if test="${organisationInstance?.partnerrollen}">
 				<li class="fieldcontain">
 					<span id="partnerrollen-label" class="property-label"><g:message code="person.partnerrollen.label.ist"/></span>

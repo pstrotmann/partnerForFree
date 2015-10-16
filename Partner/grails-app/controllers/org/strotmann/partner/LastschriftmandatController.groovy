@@ -22,6 +22,8 @@ class LastschriftmandatController {
     }
 
     def create() {
+		if (params.organisation || params.person)
+			flash.partner = Partner.get(params.organisation?params.organisation.id:params.person.id)
         respond new Lastschriftmandat(params)
     }
 

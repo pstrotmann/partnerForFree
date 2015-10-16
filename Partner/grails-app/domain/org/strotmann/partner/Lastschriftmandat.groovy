@@ -2,7 +2,6 @@ package org.strotmann.partner
 
 import java.text.SimpleDateFormat
 import java.util.List;
-
 import grails.util.Holders
 
 class Lastschriftmandat {
@@ -10,18 +9,20 @@ class Lastschriftmandat {
 	Organisation glaeubiger
 	int mandatTyp
 	String mandatsReferenz
+	Bankverbindung bankverbindung
 	Date gueltigAb
 	Date gueltigBis
 	Partner abweichenderSchuldner
 	
 	String toString() {glaeubiger?"${glaeubiger.glaeubigerId} ${mandatsReferenz}":""}
 	
-	static belongsTo = [bankverbindung:Bankverbindung]
+	static belongsTo = [schuldner:Partner]
 
     static constraints = {
 		glaeubiger()
 		mandatTyp (inList: mandatTypNum)
-		mandatsReferenz(unique: ['bankverbindung', 'glaeubiger', 'gueltigAb'])
+		mandatsReferenz(unique: ['schuldner'])
+		bankverbindung(nullable : true)
 		gueltigAb()
 		gueltigBis(nullable : true)
 		abweichenderSchuldner(nullable : true)
@@ -45,14 +46,15 @@ class Lastschriftmandat {
 	}
 	
 	Boolean getBasis() {
-		Person.get(bankverbindung.partner.id)?true:false
+		Person.get(schuldner.id)?true:false
 	}
 	
 	Boolean getFirma() {
-		Organisation.get(bankverbindung.partner.id)?true:false
+		Organisation.get(schuldner.id)?true:false
 	}
 	
-	Partner getSchuldner() {
-		abweichenderSchuldner?abweichenderSchuldner:bankverbindung.partner
+	Partner getDebitor() {
+		abweichenderSchuldner?abweichenderSchuldner:schuldner
 	}
+		
 }
