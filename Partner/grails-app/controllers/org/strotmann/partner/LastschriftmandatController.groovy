@@ -51,7 +51,8 @@ class LastschriftmandatController {
     }
 
     def edit(Lastschriftmandat lastschriftmandatInstance) {
-        respond lastschriftmandatInstance
+		flash.partner = lastschriftmandatInstance.schuldner
+		respond lastschriftmandatInstance
     }
 
     @Transactional
