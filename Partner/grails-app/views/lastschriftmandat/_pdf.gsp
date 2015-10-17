@@ -32,7 +32,7 @@
   <div class="body">
   		<table style="width:100%">
 			<tr>
-				<td><b>${form?.glaeubiger}</b></td>
+				<td><b>${form.glaeubiger}</b></td>
 			    <td>              </td>
 			    <td>              </td>
 			    <td>              </td>
@@ -55,10 +55,10 @@
 
 		<table>
 			<tr>
-				<td>Gläubiger-Identifikationsnummer <b>${form?.glaeubiger.glaeubigerId}</b></td>
+				<td>Gläubiger-Identifikationsnummer <b>${form.glaeubiger.glaeubigerId}</b></td>
 			</tr>
 			<tr>
-				<td>Mandatsreferenz <b>${form?.mandatsReferenz}</b></td>
+				<td>Mandatsreferenz <b>${form.mandatsReferenz}</b></td>
 			</tr>
 			
 		</table>
@@ -66,12 +66,12 @@
 		<p><b>Sepa Lastschriftmandat</b></p>
 		<hr width="100"></hr>
 		
-		<g:if test="${form?.basis}">
+		<g:if test="${form.basis}">
 			<p>
-				Ich ermächtige ${form?.glaeubiger}, ${form?.mandatTyp == 1?'einmalig eine Zahlung':'Zahlungen'} von
+				Ich ermächtige ${form.glaeubiger}, ${form.mandatTyp == 1?'einmalig eine Zahlung':'Zahlungen'} von
 				meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein
-				Kreditinstitut an, die von ${form?.glaeubiger} auf mein Konto
-				${form?.mandatTyp == 1?'gezogene Lastschrift':'gezogenen Lastschriften'} einzulösen. 
+				Kreditinstitut an, die von ${form.glaeubiger} auf mein Konto
+				${form.mandatTyp == 1?'gezogene Lastschrift':'gezogenen Lastschriften'} einzulösen. 
 			</p>
 			<p>
 				Hinweis: Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum,
@@ -81,46 +81,77 @@
 		</g:if>
 		<g:else>
 			<p>
-				Wir ermächtigen ${form?.glaeubiger}, ${form?.mandatTyp == 1?'einmalig eine Zahlung':'Zahlungen'} von
+				Wir ermächtigen ${form.glaeubiger}, ${form.mandatTyp == 1?'einmalig eine Zahlung':'Zahlungen'} von
 				unserem Konto mittels Lastschrift einzuziehen. Zugleich weisen wir unser
-				Kreditinstitut an, die von ${form?.glaeubiger} auf unser Konto
-				${form?.mandatTyp == 1?'gezogene Lastschrift':'gezogenen Lastschriften'} einzulösen. 
+				Kreditinstitut an, die von ${form.glaeubiger} auf unser Konto
+				${form.mandatTyp == 1?'gezogene Lastschrift':'gezogenen Lastschriften'} einzulösen. 
 			</p>
 			<p>
 				Hinweis: Dieses Lastschriftmandat dient nur dem Einzug von Lastschriften,
 				die auf Konten von Unternehmen gezogen sind. Wir sind nicht berechtigt,
 				nach der erfolgten Einlösung eine Erstattung des belasteten Betrages zu
 				verlangen. Wir sind berechtigt, unser Kreditinstitut bis zum Fälligkeitstag
-				anzuweisen, ${form?.mandatTyp == 1?'die Lastschrift':'Lastschriften'} nicht einzulösen. 
+				anzuweisen, ${form.mandatTyp == 1?'die Lastschrift':'Lastschriften'} nicht einzulösen. 
 			</p>
 		</g:else>
 		
+		<g:if test="${form?.bankverbindung}">
 		<table style="width:100%">
 			<tr>
 				<td>Kontoinhaber</td>
-				<td>_________________________</td>
+				<td>${form.bankverbindung.partner}</td>
 			</tr>
 			<tr>
 				<td>Anschrift</td>
-				<td>_________________________</td>
+				<td>${form.bankverbindung.partner.hausadresse}</td>
 			</tr>
 			<tr>
-				<td>Geldinstitut</td>
-				<td>_________________________</td>
+				<td>Geldinstitut (Name und BIC)</td>
+				<td>${form.bankverbindung.nameUndAdresse} ${form.bankverbindung.BIC}</td>
 			</tr>
 			<tr>
 				<td>IBAN</td>
-				<td>_________________________</td>
+				<td>${form.bankverbindung.iban}</td>
+			</tr>
+		</table>
+		</g:if>
+		<g:else>
+		<table style="width:100%">
+			<tr>
+				<td>Kontoinhaber</td>
+				<td>__________________________________________</td>
 			</tr>
 			<tr>
-				<td></td>
-				<td></td>
+				<td>Anschrift</td>
+				<td>__________________________________________</td>
+			</tr>
+			<tr>
+				<td>Geldinstitut (Name und BIC)</td>
+				<td>________________________________ _ _ _ _ _ _ _ _|_ _ _</td>
+			</tr>
+			<tr>
+				<td>IBAN</td>
+				<td>DE_ _|_ _ _ _|_ _ _ _|_ _ _ _|_ _ _ _|_ _</td>
+			</tr>
+		</table>
+		</g:else>
+		<p></p>
+		<table style="width:100%">	
+			<tr>
+				<td>___________________________________</td>
+				<td>___________________________________</td>
 			</tr>
 			<tr>
 				<td>Ort, Datum</td>
 				<td>Unterschift Kontoinhaber</td>
 			</tr>
 		</table>
+		
+		<g:if test="${form.abweichenderSchuldner}">
+		<p>
+			Dieses SEPA-Lastschriftmandat gilt für die Vereinbarung mit ${form.abweichenderSchuldner}
+		</p>
+		</g:if>
 			
 	</div>
 </body>
