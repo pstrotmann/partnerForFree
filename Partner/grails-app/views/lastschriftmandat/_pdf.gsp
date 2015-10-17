@@ -16,7 +16,8 @@
 		@page {
 		    /*size: 8.5in 11.65in;   width height */
 		    size: 210mm 297mm;  /* width height */
-		    margin: 1.00in;
+		    margin-left: 1.00in;
+		    margin-top: 2.50in;
 		}
 		body{
 			font-family: "Times New Roman",Georgia,Serif;
