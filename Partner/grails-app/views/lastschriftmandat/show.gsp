@@ -107,6 +107,24 @@
 					
 				</li>
 				</g:if>
+				
+				<g:if test="${lastschriftmandatInstance?.vorankuendigungsfrist}">
+				<li class="fieldcontain">
+					<span id="vorankuendigungsfrist-label" class="property-label"><g:message code="lastschriftmandat.vorankuendigungsfrist.label" default="Gueltig Bis" /></span>
+					
+						<span class="property-value" aria-labelledby="vorankuendigungsfrist-label"><g:formatNumber number="${lastschriftmandatInstance?.vorankuendigungsfrist}" /></span>
+					
+				</li>
+				</g:if>
+				
+				<li class="fieldcontain">
+					<span id="notizen-label" class="property-label"><g:message code="person.notizen.label"/></span>
+					
+						<g:each in="${org.strotmann.notiz.Notiz.getNotizen('Lastschriftmandat',lastschriftmandatInstance.id)}" var="n">
+						<span class="property-value" aria-labelledby="notizen-label"><g:link controller="notiz" action="show" id="${n.id}">${n}</g:link></span>
+						</g:each>
+					
+				</li>
 			
 			</ol>
 			<g:form url="[resource:lastschriftmandatInstance, action:'delete']" method="DELETE">

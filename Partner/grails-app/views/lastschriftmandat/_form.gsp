@@ -28,12 +28,11 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: lastschriftmandatInstance, field: 'gueltigAb', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: lastschriftmandatInstance, field: 'gueltigAb', 'error')} ">
 	<label for="gueltigAb">
 		<g:message code="lastschriftmandat.gueltigAb.label" default="Gueltig Ab" />
-		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="gueltigAb" precision="day"  value="${lastschriftmandatInstance?.gueltigAb}"  />
+	<g:datePicker name="gueltigAb" precision="day"  value="${lastschriftmandatInstance?.gueltigAb}"  default="none" noSelection="['': '']" />
 
 </div>
 
@@ -78,6 +77,14 @@
 	<g:else>
 		<g:select id="bankverbindung" name="bankverbindung.id" from="${org.strotmann.partner.Bankverbindung.list()}" optionKey="id" value="${lastschriftmandatInstance?.bankverbindung?.id}" class="many-to-one" noSelection="['null': '']"/>
 	</g:else>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: lastschriftmandatInstance, field: 'vorankuendigungsfrist', 'error')}">
+	<label for="vorankuendigungsfrist">
+		<g:message code="lastschriftmandat.vorankuendigungsfrist.label" default="Vorankuendigungsfrist" />
+		</label>
+	<g:textField name="vorankuendigungsfrist" value="${lastschriftmandatInstance?.vorankuendigungsfrist?:14}"/>
+
 </div>
 
 

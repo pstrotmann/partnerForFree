@@ -40,6 +40,9 @@ class LastschriftmandatController {
         }
 
         lastschriftmandatInstance.save flush:true
+		
+		if (lastschriftmandatInstance.gueltigAb)
+			lastschriftmandatInstance.erinnerungVorankuendigung()
 
         request.withFormat {
             form multipartForm {
@@ -68,7 +71,10 @@ class LastschriftmandatController {
         }
 
         lastschriftmandatInstance.save flush:true
-
+		
+		if (lastschriftmandatInstance.gueltigAb)
+			lastschriftmandatInstance.erinnerungVorankuendigung()
+		
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Lastschriftmandat.label', default: 'Lastschriftmandat'), lastschriftmandatInstance.id])

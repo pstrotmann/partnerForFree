@@ -31,6 +31,7 @@
 </head>
 <body>
   <div class="body">
+<%--  		<img src="pLogo.png"/>--%>
   		<table style="width:100%">
 			<tr>
 				<td><b>${form.glaeubiger}</b></td>
