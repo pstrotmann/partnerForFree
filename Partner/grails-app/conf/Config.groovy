@@ -133,7 +133,7 @@ mandatTyp = [1:'Einmalig',2:'Wiederkehrend']
 //IP-Adressen von Webservices
 bicService='http://185.82.21.97:8080/Bic-0.1'
 plzService='http://185.82.21.97:8080/Plz-0.1'
-//emailDaten
+//EmailDaten
 smtpServer='smtp.1und1.com'
 smtpPort='465'
 mailFrom='peter@strotmann.org'
