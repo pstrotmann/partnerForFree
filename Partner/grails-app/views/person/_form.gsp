@@ -9,6 +9,15 @@
 	<g:textField name="name" maxlength="30" pattern="${personInstance.constraints.name.matches}" required="" value="${personInstance?.name}"/>
 </div>
 
+<%--<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'image', 'error')} required">--%>
+<%--	<label for="image">--%>
+<%--		<g:message code="person.image.label" default="Bild" />--%>
+<%--	</label>--%>
+<%--	<g:uploadForm class="person-form">--%>
+<%--    	<g:field name="personImage" type="file" accept="image/*"/>--%>
+<%--	</g:uploadForm>--%>
+<%--</div>--%>
+
 <div class="fieldcontain ${hasErrors(bean: personInstance, field: 'hausadresse', 'error')} ">
 	<label for="hausadresse">
 		<g:message code="person.hausadresse.label"/>

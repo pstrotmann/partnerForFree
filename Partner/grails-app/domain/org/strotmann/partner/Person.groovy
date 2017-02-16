@@ -9,12 +9,16 @@ class Person extends Partner {
 	String vorname = ''
 	String geschlecht
 	Date geburtsdatum
+	Date sterbedatum
 	Land nationalitaet
 	boolean persoenlicheAnrede
 	String phVorname
 	String religion
 	Branche beruf
 	Branche taetigkeit
+	byte[] image;
+	String imageName;
+	String imageContentType;
 	
     static constraints = {
 		titel(size:3..20,matches:"[a-zA-Z\\. ]+",nullable:true)
@@ -43,6 +47,7 @@ class Person extends Partner {
 			)
 		geschlecht (inList:["m", "f"])
 		geburtsdatum (nullable:true)
+		sterbedatum (nullable:true)
 		nationalitaet(nullable:true)
 		persoenlicheAnrede(nullable:true)
 		hausadresse (nullable:true)
@@ -50,6 +55,9 @@ class Person extends Partner {
 		religion (inList:religionen,nullable:true)
 		beruf (nullable:true)
 		taetigkeit (nullable:true)
+		image nullable: true, blank: true, maxSize: 1024 * 1024 * 20; //20MB
+		imageName nullable: true, blank: true;
+		imageContentType nullable: true, blank: true;
     }
 	
 	String toString() {"${geschlecht == 'm'?'Herr':'Frau'} ${titel?titel:''} ${vorname?vorname:''} ${this.name} "}
