@@ -12,6 +12,8 @@
 			<ul>
 				<li><a class="home" href="${createLink(uri: "/menu", params: [lang: session.user.sprache])}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="list" action="phList"><g:message code="default.pMerge.label"/></g:link></li>
+				<li><g:link class="list" controller="historie" action="loeList" params="[domName:entityName]"><g:message code="default.loe.label" args="[entityName]"/></g:link></li>
 			</ul>
 		</div>
 		<div id="list-person" class="content scaffold-list" role="main">

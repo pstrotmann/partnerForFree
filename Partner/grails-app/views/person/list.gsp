@@ -1,4 +1,3 @@
-
 <%@ page import="org.strotmann.partner.Person" %>
 <!DOCTYPE html>
 <html>
@@ -26,15 +25,15 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="name" title="${message(code: 'person.name.label')}" />
+						<g:sortableColumn property="name" title="${message(code: 'person.name.label', default: 'Name')}" />
 					
-						<g:sortableColumn property="vorname" title="${message(code: 'person.vorname.label')}" />
+						<g:sortableColumn property="vorname" title="${message(code: 'person.vorname.label', default: 'Vorname')}" />
 					
-						<g:sortableColumn property="geschlecht" title="${message(code: 'person.geschlecht.label')}" />
+						<g:sortableColumn property="geschlecht" title="${message(code: 'person.geschlecht.label', default: 'Geschlecht')}" />
 					
-						<g:sortableColumn property="geburtsdatum" title="${message(code: 'person.geburtsdatum.label')}" />
+						<g:sortableColumn property="geburtsdatum" title="${message(code: 'person.geburtsdatum.label', default: 'Geburtsdatum')}" />
 						
-						<g:sortableColumn property="hausadresse" title="${message(code: 'person.hausadresse.label')}" />
+						<g:sortableColumn property="hausadresse" title="${message(code: 'person.hausadresse.label', default: 'Hausadresse')}" />
 						
 					
 					</tr>

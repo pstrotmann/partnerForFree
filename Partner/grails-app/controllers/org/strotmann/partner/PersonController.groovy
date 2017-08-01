@@ -16,10 +16,10 @@ import org.strotmann.partner.Person;
 class PersonController {
 	
 	def scaffold = true
-	
+		
 	def list(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
-		[personInstanceList: Person.getPhPersonList (), personInstanceTotal: Person.getPersonList().count({})]
+		[personInstanceList: Person.getPersonList (), personInstanceTotal: Person.getPersonList().count({})]
 	}
 	
 	def show(Person personInstance) {
