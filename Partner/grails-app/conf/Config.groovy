@@ -138,7 +138,7 @@ smtpServer='smtp.1und1.com'
 smtpPort='465'
 mailFrom='peter@strotmann.org'
 mailUser='pt8100853-1'
-mailPasswort='gaby0815'
+mailPasswort='..,-f=1M'
 //smsDaten
 ACCOUNT_SID='ACb35f187884ebf4736dbb42e48bffdeae'
 AUTH_TOKEN='b9f2a00b6dba352a6874003b62f8d73b'
