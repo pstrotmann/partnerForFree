@@ -74,7 +74,7 @@
     			<li class="fieldcontain">
 					<span id="persoenlicheAnrede-label" class="property-label"><g:message code="person.persoenlicheAnrede.label"/></span>
 
-						<span class="property-value" aria-labelledby="persoenlicheAnrede-label"><g:formatBoolean boolean="${personInstance?.persoenlicheAnrede}" true="persönlich" false="formal"/></span>
+						<span class="property-value" aria-labelledby="persoenlicheAnrede-label"><g:formatBoolean boolean="${personInstance?.persoenlicheAnrede}" true="ja" false="nein"/></span>
 					  
     			</li>
 				</g:if>
