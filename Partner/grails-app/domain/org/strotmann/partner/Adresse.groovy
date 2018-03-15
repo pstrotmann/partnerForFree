@@ -10,5 +10,4 @@ class Adresse {
 	static mapping = {
 		tablePerHierarchy false
 	}
-	//nur für Github test
 }
