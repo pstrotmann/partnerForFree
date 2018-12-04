@@ -31,8 +31,8 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:partnerDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE;CIPHER=XTEA"
-            properties {
+            url = "jdbc:h2:file:/vol/h2/partnerDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE;CIPHER=XTEA"
+			properties {
                jmxEnabled = true
                initialSize = 5
                maxActive = 50
